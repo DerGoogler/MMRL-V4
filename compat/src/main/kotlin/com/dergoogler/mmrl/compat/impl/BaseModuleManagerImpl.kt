@@ -5,8 +5,8 @@ import com.topjohnwu.superuser.Shell
 import com.topjohnwu.superuser.ShellUtils
 import com.dergoogler.mmrl.compat.content.LocalModule
 import com.dergoogler.mmrl.compat.content.State
-import dev.sanmer.mrepo.compat.stub.IInstallCallback
-import dev.sanmer.mrepo.compat.stub.IModuleManager
+import com.dergoogler.mmrl.compat.stub.IInstallCallback
+import com.dergoogler.mmrl.compat.stub.IModuleManager
 import java.io.File
 import java.util.zip.ZipFile
 

@@ -1,8 +1,8 @@
-package dev.sanmer.mrepo.compat.stub;
+package com.dergoogler.mmrl.compat.stub;
 
-import dev.sanmer.mrepo.compat.content.LocalModule;
-import dev.sanmer.mrepo.compat.stub.IInstallCallback;
-import dev.sanmer.mrepo.compat.stub.IModuleOpsCallback;
+import com.dergoogler.mmrl.compat.content.LocalModule;
+import com.dergoogler.mmrl.compat.stub.IInstallCallback;
+import com.dergoogler.mmrl.compat.stub.IModuleOpsCallback;
 
 interface IModuleManager {
     String getVersion();

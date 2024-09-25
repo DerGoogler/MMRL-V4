@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "repository/RepositoryMenu.proto";
 
-option java_package = "com.sanmer.mrepo.datastore.modules";
+option java_package = "com.dergoogler.mmrl.datastore.modules";
 option java_multiple_files = true;
 
 message ModulesMenu {

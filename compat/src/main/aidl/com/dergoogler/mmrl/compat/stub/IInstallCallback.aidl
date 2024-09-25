@@ -1,6 +1,6 @@
-package dev.sanmer.mrepo.compat.stub;
+package com.dergoogler.mmrl.compat.stub;
 
-import dev.sanmer.mrepo.compat.content.LocalModule;
+import com.dergoogler.mmrl.compat.content.LocalModule;
 
 interface IInstallCallback {
     void onStdout(String msg);

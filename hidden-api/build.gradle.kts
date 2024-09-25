@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.sanmer.mrepo.hidden_api"
+    namespace = "com.dergoogler.mmrl.hidden_api"
 }
 
 dependencies {

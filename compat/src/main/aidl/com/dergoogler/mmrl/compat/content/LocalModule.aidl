@@ -1,3 +1,3 @@
-package dev.sanmer.mrepo.compat.content;
+package com.dergoogler.mmrl.compat.content;
 
 parcelable LocalModule;

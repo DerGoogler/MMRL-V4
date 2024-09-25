@@ -1,4 +1,4 @@
-package dev.sanmer.mrepo.compat.stub;
+package com.dergoogler.mmrl.compat.stub;
 
 interface IFileManager {
     boolean deleteOnExit(String path);

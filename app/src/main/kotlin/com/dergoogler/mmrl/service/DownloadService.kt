@@ -238,7 +238,7 @@ class DownloadService : LifecycleService() {
 
     companion object {
         private const val GROUP_KEY = "DOWNLOAD_SERVICE_GROUP_KEY"
-        private const val EXTRA_TASK = "com.sanmer.mrepo.extra.TASK"
+        private const val EXTRA_TASK = "com.dergoogler.mmrl.extra.TASK"
         private val Intent.taskItemOrNull: TaskItem? get() =
             parcelable(EXTRA_TASK)
 

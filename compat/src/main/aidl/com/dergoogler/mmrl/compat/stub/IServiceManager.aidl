@@ -1,8 +1,8 @@
-package dev.sanmer.mrepo.compat.stub;
+package com.dergoogler.mmrl.compat.stub;
 
-import dev.sanmer.mrepo.compat.stub.IFileManager;
-import dev.sanmer.mrepo.compat.stub.IModuleManager;
-import dev.sanmer.mrepo.compat.stub.IPowerManager;
+import com.dergoogler.mmrl.compat.stub.IFileManager;
+import com.dergoogler.mmrl.compat.stub.IModuleManager;
+import com.dergoogler.mmrl.compat.stub.IPowerManager;
 
 interface IServiceManager {
     int getUid() = 0;

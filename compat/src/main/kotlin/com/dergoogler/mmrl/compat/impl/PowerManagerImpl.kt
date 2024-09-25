@@ -1,6 +1,6 @@
 package com.dergoogler.mmrl.compat.impl
 
-import dev.sanmer.mrepo.compat.stub.IPowerManager
+import com.dergoogler.mmrl.compat.stub.IPowerManager
 
 internal class PowerManagerImpl(
     private val original: android.os.IPowerManager

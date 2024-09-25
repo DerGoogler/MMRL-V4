@@ -10,7 +10,7 @@ import com.topjohnwu.superuser.Shell
 import com.topjohnwu.superuser.ipc.RootService
 import com.dergoogler.mmrl.compat.delegate.ContextDelegate
 import com.dergoogler.mmrl.compat.impl.ServiceManagerImpl
-import dev.sanmer.mrepo.compat.stub.IServiceManager
+import com.dergoogler.mmrl.compat.stub.IServiceManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext

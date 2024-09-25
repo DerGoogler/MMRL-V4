@@ -19,7 +19,7 @@ import com.dergoogler.mmrl.utils.extensions.tmpDir
 import dagger.hilt.android.lifecycle.HiltViewModel
 import com.dergoogler.mmrl.compat.content.State
 import com.dergoogler.mmrl.compat.delegate.PowerManagerDelegate
-import dev.sanmer.mrepo.compat.stub.IInstallCallback
+import com.dergoogler.mmrl.compat.stub.IInstallCallback
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

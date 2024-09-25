@@ -4,7 +4,7 @@ import android.os.Build
 import android.os.PowerManagerHidden
 import androidx.annotation.RequiresApi
 import com.dergoogler.mmrl.compat.BuildCompat
-import dev.sanmer.mrepo.compat.stub.IPowerManager
+import com.dergoogler.mmrl.compat.stub.IPowerManager
 
 class PowerManagerDelegate(
     private val powerManager: IPowerManager

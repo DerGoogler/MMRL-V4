@@ -11,4 +11,4 @@
    <fields>;
 }
 
--repackageclasses com.sanmer.mrepo
+-repackageclasses com.dergoogler.mmrl

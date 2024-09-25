@@ -6,10 +6,10 @@ import android.os.ServiceManager
 import android.system.Os
 import com.topjohnwu.superuser.Shell
 import com.topjohnwu.superuser.ShellUtils
-import dev.sanmer.mrepo.compat.stub.IFileManager
-import dev.sanmer.mrepo.compat.stub.IModuleManager
-import dev.sanmer.mrepo.compat.stub.IPowerManager
-import dev.sanmer.mrepo.compat.stub.IServiceManager
+import com.dergoogler.mmrl.compat.stub.IFileManager
+import com.dergoogler.mmrl.compat.stub.IModuleManager
+import com.dergoogler.mmrl.compat.stub.IPowerManager
+import com.dergoogler.mmrl.compat.stub.IServiceManager
 import kotlin.system.exitProcess
 
 internal class ServiceManagerImpl : IServiceManager.Stub() {

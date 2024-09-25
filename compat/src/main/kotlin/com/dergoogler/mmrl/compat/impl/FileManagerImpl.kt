@@ -1,6 +1,6 @@
 package com.dergoogler.mmrl.compat.impl
 
-import dev.sanmer.mrepo.compat.stub.IFileManager
+import com.dergoogler.mmrl.compat.stub.IFileManager
 import java.io.File
 
 internal class FileManagerImpl : IFileManager.Stub() {

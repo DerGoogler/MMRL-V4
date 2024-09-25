@@ -1,8 +1,8 @@
 package com.dergoogler.mmrl.compat.impl
 
 import com.topjohnwu.superuser.Shell
-import dev.sanmer.mrepo.compat.stub.IInstallCallback
-import dev.sanmer.mrepo.compat.stub.IModuleOpsCallback
+import com.dergoogler.mmrl.compat.stub.IInstallCallback
+import com.dergoogler.mmrl.compat.stub.IModuleOpsCallback
 
 internal class APatchModuleManagerImpl(
     private val shell: Shell,
