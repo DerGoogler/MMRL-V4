@@ -1,0 +1,9 @@
+MRepo is an Android app that helps manage your own modules repository.
+
+Features:
+- Manage your modules repository
+- Support multiple repositories
+- Support Magisk and KernelSU
+- Jetpack Compose & Material Design 3
+
+https://github.com/MRepoApp/MRepo
