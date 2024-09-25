@@ -4,6 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.TypeConverters
 import com.sanmer.mrepo.model.online.ModuleNote
+import com.sanmer.mrepo.model.online.ModuleRoot
 import com.sanmer.mrepo.model.online.OnlineModule
 import com.sanmer.mrepo.model.online.TrackJson
 import com.sanmer.mrepo.utils.StringListTypeConverter
@@ -34,6 +35,11 @@ data class OnlineModuleEntity(
     val require: List<String> = emptyList(),
     val verified: Boolean = false,
 
+    @Embedded val root: ModuleRootEntity = ModuleRootEntity(
+        magisk = "",
+        kernelsu = "",
+        apatch = ""
+    ),
     @Embedded val note: ModuleNoteEntity = ModuleNoteEntity(color = "", title = "", message = ""),
     @Embedded val track: TrackJsonEntity
 ) {
@@ -133,5 +139,25 @@ data class ModuleNoteEntity(
         color = color,
         title = title,
         message = message,
+    )
+}
+
+@Entity(tableName = "root")
+@TypeConverters
+data class ModuleRootEntity(
+    val magisk: String = "",
+    val kernelsu: String = "",
+    val apatch: String = "",
+) {
+    constructor(original: ModuleRoot) : this(
+        magisk = original.magisk,
+        kernelsu = original.kernelsu,
+        apatch = original.apatch,
+    )
+
+    fun toNote() = ModuleRoot(
+        magisk = magisk,
+        kernelsu = kernelsu,
+        apatch = apatch,
     )
 }

@@ -30,7 +30,7 @@ data class OnlineModule(
     val require: List<String> = emptyList(),
     val verified: Boolean = false,
 
-
+    val root: ModuleRoot = ModuleRoot(magisk = "", kernelsu = "", apatch = ""),
     val note: ModuleNote = ModuleNote(title = "", message = "", color = "")
     //features: ModuleFeatures
 ) {

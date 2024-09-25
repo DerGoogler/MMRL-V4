@@ -93,9 +93,6 @@ private fun topBarContent(
     val hasLicense = module.hasLicense
     val hasDonate = module.donate.isNotBlank()
 
-    val ver = ">=10764"
-    val requiredVersion = rootVersionName.replace(Regex(":.*$"), "").toVersionOrNull()
-
     Row(
         modifier = Modifier.padding(horizontal = 16.dp),
         verticalAlignment = Alignment.Top
@@ -141,7 +138,7 @@ private fun topBarContent(
 
             Text(
                 text = buildAnnotatedString {
-                    append("Root $ver")
+                    append("ID = ${module.id}")
                     if (hasLicense) {
                         append(", ")
                         append("License = ${module.license}")
@@ -150,14 +147,13 @@ private fun topBarContent(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.outline
             )
-            if (requiredVersion != null) {
-                if (!(requiredVersion satisfies ver.toConstraint())) {
-                    Text(
-                        text = stringResource(R.string.unsupported),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onError
-                    )
-                }
+
+            if (module.root.isSupported(rootVersionName)) {
+                Text(
+                    text = stringResource(R.string.unsupported),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onError
+                )
             }
         }
     }

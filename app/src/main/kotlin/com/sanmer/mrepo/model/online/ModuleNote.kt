@@ -1,7 +1,5 @@
 package com.sanmer.mrepo.model.online
 
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import com.squareup.moshi.JsonClass
 
