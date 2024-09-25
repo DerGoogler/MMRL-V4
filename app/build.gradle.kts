@@ -18,7 +18,7 @@ android {
     namespace = "com.dergoogler.mmrl"
 
     defaultConfig {
-        applicationId = namespace
+        applicationId = "${namespace}${verNameSuffix}"
         versionName = "${baseVersionName}${verNameSuffix}.${commitId}"
         versionCode = 9
 
