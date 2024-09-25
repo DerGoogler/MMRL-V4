@@ -81,7 +81,7 @@
     <string name="menu_descending">Giảm dần</string>
     <string name="menu_show_updated">Hiển thị thời gian cập nhật</string>
     <string name="install_failure">Thất bại</string>
-    <string name="settings_app_desc">Các thiết đặt về chính ứng dụng MRepo</string>
+    <string name="settings_app_desc">Các thiết đặt về chính ứng dụng MMRL</string>
     <string name="settings_app_theme_desc">Thay đổi bảng màu và chế độ ban đêm</string>
     <string name="menu_pin_enabled">Ghim Đã kích hoạt</string>
     <string name="message_download_success">Tải xuống thành công</string>

@@ -26,7 +26,7 @@
     <string name="module_download">Загрузить</string>
     <string name="settings_repo">Репозитории</string>
     <string name="settings_app">Приложение</string>
-    <string name="settings_app_desc">Настройки приложения MRepo</string>
+    <string name="settings_app_desc">Настройки приложения MMRL</string>
     <string name="settings_about">О приложении</string>
     <string name="settings_root_access">Рут доступ: %s</string>
     <string name="settings_root_provider">Предоставитель: %s</string>

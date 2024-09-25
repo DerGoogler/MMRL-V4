@@ -5,7 +5,7 @@
     <string name="view_module_local">Lokalnie</string>
     <string name="view_module_version">Wersja</string>
     <string name="view_module_version_dialog_desc">Chcesz zainstalować czy pobrać tę wersję modułu\?</string>
-    <string name="settings_app_desc">Ustawienia aplikacji MRepo</string>
+    <string name="settings_app_desc">Ustawienia aplikacji MMRL</string>
     <string name="settings_delete_zip">Usuwaj plik zip</string>
     <string name="settings_delete_zip_desc">Usuwa plik zip modułu (za pomocą roota) po pomyślnej instalacji</string>
     <string name="app_theme_palette">Paleta barw</string>

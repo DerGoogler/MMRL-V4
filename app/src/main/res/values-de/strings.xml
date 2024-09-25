@@ -36,7 +36,7 @@
     <string name="view_module_added">Hinzugefügt am: %s</string>
     <string name="module_version_author">%1$s von %2$s</string>
     <string name="view_module_view_track">Track ansehen</string>
-    <string name="settings_app_desc">Einstellungen der MRepo App selbst</string>
+    <string name="settings_app_desc">Einstellungen der MMRL App selbst</string>
     <string name="settings_repo_desc">Magisk Modul Repositories anpassen</string>
     <string name="settings_about">Über</string>
     <string name="settings_root_access">Root Zugriff: %s</string>

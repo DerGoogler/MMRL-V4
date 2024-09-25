@@ -64,7 +64,7 @@
     <string name="settings_delete_zip">حذف الملف المضغوط</string>
     <string name="page_repository">المستودع</string>
     <string name="view_module_version_dialog_desc">هل تريد تثبيت او تنزيل هذا الإصدار من الوحدة؟</string>
-    <string name="settings_app_desc">اعدادات حول تطبيق MRepo نفسه</string>
+    <string name="settings_app_desc">اعدادات حول تطبيق MMRL نفسه</string>
     <string name="settings_about">حول</string>
     <string name="about_app_version">الإصدار %1$s (%2$s)</string>
     <string name="menu_show_updated">عرض وقت الحديث</string>

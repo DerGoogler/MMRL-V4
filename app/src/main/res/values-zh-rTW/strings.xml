@@ -12,7 +12,7 @@
     <string name="page_repository">儲存庫</string>
     <string name="page_modules">模組</string>
     <string name="page_settings">設定</string>
-    <string name="settings_app_desc">有關 MRepo 的設定</string>
+    <string name="settings_app_desc">有關 MMRL 的設定</string>
     <string name="settings_about">關於</string>
     <string name="settings_root_access">Root 狀態：%s</string>
     <string name="settings_root_provider">授權者：%s</string>

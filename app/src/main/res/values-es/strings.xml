@@ -66,7 +66,7 @@
     <string name="menu_descending">Descendente</string>
     <string name="menu_pin_enabled">Encabezar activados</string>
     <string name="menu_show_updated">Mostrar tiempo de actualización</string>
-    <string name="settings_app_desc">Configuraciones de MRepo</string>
+    <string name="settings_app_desc">Configuraciones de MMRL</string>
     <string name="repo_incompatible">Incompatible</string>
     <string name="about_app_version">Versión %1$s (%2$s)</string>
     <string name="menu_show_icon">Mostrar icono</string>

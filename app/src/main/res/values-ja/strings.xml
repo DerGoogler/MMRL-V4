@@ -44,7 +44,7 @@
     <string name="settings_delete_zip_desc">インストールが成功したらモジュールの Zip ファイルを削除します。これはスーパーユーザーで実行されます。</string>
     <string name="about_desc1">Magisk、KernelSU のモジュール管理、モジュールリポジトリの提供。</string>
     <string name="settings_app">アプリ</string>
-    <string name="settings_app_desc">MRepo アプリの設定</string>
+    <string name="settings_app_desc">MMRL アプリの設定</string>
     <string name="page_repository">リポジトリ</string>
     <string name="settings_root_access">Root アクセス: %s</string>
     <string name="settings_root_provider">プロバイダー: %s</string>

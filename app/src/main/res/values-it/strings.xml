@@ -59,7 +59,7 @@
     <string name="repository_empty">La repository è vuota</string>
     <string name="view_module_update_notify">Notifica</string>
     <string name="view_module_type">Tipo: %s</string>
-    <string name="settings_app_desc">Impostazioni di MRepo</string>
+    <string name="settings_app_desc">Impostazioni di MMRL</string>
     <string name="settings_app_theme">Tema App</string>
     <string name="settings_download_path">Percorso per i Download</string>
     <string name="settings_delete_zip">Elimina File Zip</string>

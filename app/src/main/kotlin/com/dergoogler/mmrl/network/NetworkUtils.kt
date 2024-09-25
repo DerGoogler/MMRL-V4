@@ -65,7 +65,7 @@ object NetworkUtils {
 
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
-            request.header("User-Agent", "MRepo/${BuildConfig.VERSION_CODE}")
+            request.header("User-Agent", "MMRL/${BuildConfig.VERSION_CODE}")
             request.header("Accept-Language", Locale.getDefault().toLanguageTag())
             chain.proceed(request.build())
         }

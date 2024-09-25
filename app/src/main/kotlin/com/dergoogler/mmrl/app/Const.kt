@@ -8,10 +8,11 @@ object Const {
         Environment.DIRECTORY_DOWNLOADS
     )
 
-    const val MY_GITHUB_URL = "https://github.com/SanmerDev"
+    const val SANMER_GITHUB_URL = "https://github.com/SanmerDev"
+    const val GOOGLER_GITHUB_URL = "https://github.com/DerGoogler"
     const val TRANSLATE_URL = "https://weblate.sanmer.app/engage/mrepo"
-    const val GITHUB_URL = "https://github.com/MRepoApp/MRepo"
-    const val TELEGRAM_URL = "https://t.me/mrepo_news"
-    const val DEMO_REPO_URL = "https://demo-repo.sanmer.app/"
+    const val GITHUB_URL = "https://github.com/DerGoogler/MMRL"
+    const val TELEGRAM_URL = "https://t.me/GooglersRepo"
+    const val DEMO_REPO_URL = "https://gr.dergoogler.com/gmr/"
     const val SPDX_URL = "https://spdx.org/licenses/%s.json"
 }

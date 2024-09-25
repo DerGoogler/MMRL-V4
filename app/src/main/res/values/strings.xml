@@ -67,7 +67,7 @@
 
     <!-- Settings -->
     <string name="settings_app">App</string>
-    <string name="settings_app_desc">Settings about MRepo app itself</string>
+    <string name="settings_app_desc">Settings about MMRL app itself</string>
     <string name="settings_repo">Repositories</string>
     <string name="settings_repo_desc">Manage Magisk modules repositories</string>
     <string name="settings_about">About</string>

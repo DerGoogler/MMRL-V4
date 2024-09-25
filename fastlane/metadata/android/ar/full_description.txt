@@ -1,4 +1,4 @@
-MRepo هو تطبيق Android يساعد في إدارة مستودع الإضافت النمطية الخاص بك.
+MMRL هو تطبيق Android يساعد في إدارة مستودع الإضافت النمطية الخاص بك.
 
  المميزات:
  - إدارة مستودع الإضافات الخاصة بك
@@ -6,4 +6,4 @@ MRepo هو تطبيق Android يساعد في إدارة مستودع الإضا
  - دعم Magisk وKernelSU
  - إنشاء Jetpack وتصميم Material 3
 
- https://github.com/MRepoApp/MRepo
+ https://github.com/DerGoogler/MMRL

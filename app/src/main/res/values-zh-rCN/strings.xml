@@ -66,7 +66,7 @@
 
     <!-- Settings-->
     <string name="settings_app">应用</string>
-    <string name="settings_app_desc">关于 MRepo 应用本身的设置</string>
+    <string name="settings_app_desc">关于 MMRL 应用本身的设置</string>
     <string name="settings_repo">存储库</string>
     <string name="settings_repo_desc">管理 Magisk 模块存储库</string>
     <string name="settings_about">关于</string>

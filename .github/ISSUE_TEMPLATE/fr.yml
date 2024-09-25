@@ -11,7 +11,7 @@ body:
       options:
         - label: No one has submitted a similar or identical feature request before
           required: true
-        - label: This suggestion does not depart from the original intention of MRepo
+        - label: This suggestion does not depart from the original intention of MMRL
           required: true
   - type: textarea
     id: propose

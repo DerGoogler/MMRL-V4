@@ -57,7 +57,7 @@
     <string name="module_new">Nouveau</string>
     <string name="view_module_version">Version</string>
     <string name="view_module_local">Local</string>
-    <string name="settings_app_desc">Paramètres de MRepo</string>
+    <string name="settings_app_desc">Paramètres de MMRL</string>
     <string name="page_repository">Dépôt</string>
     <string name="module_installed">Installé</string>
     <string name="menu_pin_installed">Épingler installé</string>

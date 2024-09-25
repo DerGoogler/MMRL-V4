@@ -56,7 +56,7 @@
     <string name="settings_delete_zip_desc">Șterge fișierul zip al modulului după ce instalarea a reușit, aceasta va fi executată de Super-utilizator</string>
     <string name="page_repository">Depozit</string>
     <string name="view_module_version_dialog_desc">Dorești să instalezi sau să descarci această versiune a modulului\?</string>
-    <string name="settings_app_desc">Setările despre aplicația MRepo în sine</string>
+    <string name="settings_app_desc">Setările despre aplicația MMRL în sine</string>
     <string name="settings_about">Despre</string>
     <string name="module_installed">Instalat</string>
     <string name="view_module_page_overview">General</string>
