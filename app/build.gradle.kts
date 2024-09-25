@@ -11,16 +11,15 @@ plugins {
 }
 
 val baseVersionName = "2.4.10"
-val isDevVersion get() = false//exec("git tag --contains HEAD").isEmpty()
+val isDevVersion get() = exec("git tag --contains HEAD").isEmpty()
 val verNameSuffix get() = if (isDevVersion) ".dev" else ""
 
 android {
-    namespace = "com.sanmer.mrepo"
+    namespace = "com.dergoogler.mmrl"
 
     defaultConfig {
         applicationId = namespace
-//        versionName = "${baseVersionName}${verNameSuffix}.${commitId}"
-        versionName = baseVersionName
+        versionName = "${baseVersionName}${verNameSuffix}.${commitId}"
         versionCode = 9
 
         resourceConfigurations += arrayOf(
@@ -97,7 +96,7 @@ android {
     applicationVariants.configureEach {
         outputs.configureEach {
             (this as? ApkVariantOutputImpl)?.outputFileName =
-                "MRepo-${versionName}-${versionCode}-${name}.apk"
+                "MMRL-${versionName}-${versionCode}-${name}.apk"
         }
     }
 }

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.sanmer.mrepo.compat"
+    namespace = "com.dergoogler.mmrl.compat"
 
     buildFeatures {
         aidl = true
