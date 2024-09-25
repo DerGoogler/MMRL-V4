@@ -25,7 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.dergoogler.mmrl.R
-import com.dergoogler.mmrl.compat.BuildCompat
+import dev.dergoogler.mmrl.compat.BuildCompat
 import com.dergoogler.mmrl.ui.theme.Colors
 
 @Composable

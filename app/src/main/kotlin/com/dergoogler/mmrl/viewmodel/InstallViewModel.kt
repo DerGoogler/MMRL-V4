@@ -17,9 +17,9 @@ import com.dergoogler.mmrl.repository.LocalRepository
 import com.dergoogler.mmrl.repository.UserPreferencesRepository
 import com.dergoogler.mmrl.utils.extensions.tmpDir
 import dagger.hilt.android.lifecycle.HiltViewModel
-import com.dergoogler.mmrl.compat.content.State
-import com.dergoogler.mmrl.compat.delegate.PowerManagerDelegate
-import com.dergoogler.mmrl.compat.stub.IInstallCallback
+import dev.dergoogler.mmrl.compat.content.State
+import dev.dergoogler.mmrl.compat.delegate.PowerManagerDelegate
+import dev.dergoogler.mmrl.compat.stub.IInstallCallback
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

@@ -26,7 +26,7 @@ import com.dergoogler.mmrl.repository.UserPreferencesRepository
 import com.dergoogler.mmrl.service.DownloadService
 import com.dergoogler.mmrl.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
-import com.dergoogler.mmrl.compat.stub.IModuleOpsCallback
+import dev.dergoogler.mmrl.compat.stub.IModuleOpsCallback
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine

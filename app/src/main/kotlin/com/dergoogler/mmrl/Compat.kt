@@ -4,11 +4,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import com.dergoogler.mmrl.datastore.WorkingMode
-import com.dergoogler.mmrl.compat.ServiceManagerCompat
-import com.dergoogler.mmrl.compat.stub.IFileManager
-import com.dergoogler.mmrl.compat.stub.IModuleManager
-import com.dergoogler.mmrl.compat.stub.IPowerManager
-import com.dergoogler.mmrl.compat.stub.IServiceManager
+import dev.dergoogler.mmrl.compat.ServiceManagerCompat
+import dev.dergoogler.mmrl.compat.stub.IFileManager
+import dev.dergoogler.mmrl.compat.stub.IModuleManager
+import dev.dergoogler.mmrl.compat.stub.IPowerManager
+import dev.dergoogler.mmrl.compat.stub.IServiceManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import timber.log.Timber

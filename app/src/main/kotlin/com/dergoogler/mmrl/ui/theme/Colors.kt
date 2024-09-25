@@ -8,7 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import com.dergoogler.mmrl.compat.BuildCompat
+import dev.dergoogler.mmrl.compat.BuildCompat
 import com.dergoogler.mmrl.ui.theme.color.AlmondBlossomDarkScheme
 import com.dergoogler.mmrl.ui.theme.color.AlmondBlossomLightScheme
 import com.dergoogler.mmrl.ui.theme.color.JeufosseDarkScheme

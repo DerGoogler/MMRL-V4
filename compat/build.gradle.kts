@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dergoogler.mmrl.compat"
+    namespace = "dev.dergoogler.mmrl.compat"
 
     buildFeatures {
         aidl = true

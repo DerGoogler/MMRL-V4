@@ -6,7 +6,7 @@ import com.dergoogler.mmrl.network.NetworkUtils
 import com.dergoogler.mmrl.utils.timber.DebugTree
 import com.dergoogler.mmrl.utils.timber.ReleaseTree
 import dagger.hilt.android.HiltAndroidApp
-import com.dergoogler.mmrl.compat.ServiceManagerCompat
+import dev.dergoogler.mmrl.compat.ServiceManagerCompat
 import timber.log.Timber
 
 @HiltAndroidApp

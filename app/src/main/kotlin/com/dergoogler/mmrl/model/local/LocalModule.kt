@@ -1,7 +1,7 @@
 package com.dergoogler.mmrl.model.local
 
 import com.dergoogler.mmrl.utils.Utils
-import com.dergoogler.mmrl.compat.content.LocalModule
+import dev.dergoogler.mmrl.compat.content.LocalModule
 
 typealias LocalModule = LocalModule
 

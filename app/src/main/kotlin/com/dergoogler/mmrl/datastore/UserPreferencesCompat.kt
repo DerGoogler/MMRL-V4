@@ -3,7 +3,7 @@ package com.dergoogler.mmrl.datastore
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import com.dergoogler.mmrl.app.Const
-import com.dergoogler.mmrl.compat.BuildCompat
+import dev.dergoogler.mmrl.compat.BuildCompat
 import com.dergoogler.mmrl.datastore.modules.ModulesMenuCompat
 import com.dergoogler.mmrl.datastore.repository.RepositoryMenuCompat
 import com.dergoogler.mmrl.ui.theme.Colors
