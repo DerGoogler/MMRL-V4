@@ -45,7 +45,6 @@ class ModuleViewModel @Inject constructor(
         with(moduleManager) { version }
     }
 
-
     private val moduleId = getModuleId(savedStateHandle)
     var online: OnlineModule by mutableStateOf(OnlineModule.example())
         private set
@@ -57,6 +56,8 @@ class ModuleViewModel @Inject constructor(
             && online.track.source.isBlank()
             && online.support.orEmpty().isBlank()
 
+    val isEmptyReadme get() = !online.hasReadme
+    val readme get() = online.readme.orEmpty()
     var local: LocalModule? by mutableStateOf(null)
         private set
 

@@ -11,14 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.core.net.toUri
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.dergoogler.mmrl.R
 import com.dergoogler.mmrl.model.online.VersionItem
 import com.dergoogler.mmrl.ui.activity.InstallActivity
 import com.dergoogler.mmrl.ui.component.CollapsingTopAppBarDefaults
 import com.dergoogler.mmrl.ui.screens.repository.view.pages.AboutPage
 import com.dergoogler.mmrl.ui.screens.repository.view.pages.OverviewPage
+import com.dergoogler.mmrl.ui.screens.repository.view.pages.ReadmePage
 import com.dergoogler.mmrl.ui.screens.repository.view.pages.VersionsPage
 import com.dergoogler.mmrl.ui.utils.none
 import com.dergoogler.mmrl.viewmodel.ModuleViewModel
@@ -31,7 +34,25 @@ fun ViewScreen(
     val context = LocalContext.current
 
     val scrollBehavior = CollapsingTopAppBarDefaults.scrollBehavior()
-    val pagerState = rememberPagerState { if (viewModel.isEmptyAbout) 2 else 3 }
+
+    val hasAbout = !viewModel.isEmptyAbout
+    val hasReadme = !viewModel.isEmptyReadme
+
+    val pages = mutableListOf<Int>().apply {
+        add(R.string.view_module_page_overview)
+
+        if (hasReadme) {
+            add(R.string.view_module_page_readme)
+        }
+
+        add(R.string.view_module_page_versions)
+
+        if (hasAbout) {
+            add(R.string.view_module_page_about)
+        }
+    }
+
+    val pagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
 
     val download: (VersionItem, Boolean) -> Unit = { item, install ->
         viewModel.downloader(context, item) {
@@ -63,33 +84,41 @@ fun ViewScreen(
             ViewTab(
                 state = pagerState,
                 updatableSize = viewModel.updatableSize,
-                hasAbout = !viewModel.isEmptyAbout
+                pages = pages
             )
 
             HorizontalPager(
                 state = pagerState,
                 modifier = Modifier.fillMaxSize()
-            ) { pageIndex ->
-                when (pageIndex) {
-                    0 -> OverviewPage(
-                        online = viewModel.online,
-                        item = viewModel.lastVersionItem,
-                        local = viewModel.local,
-                        notifyUpdates = viewModel.notifyUpdates,
-                        isProviderAlive = viewModel.isProviderAlive,
-                        setUpdatesTag = viewModel::setUpdatesTag,
-                        onInstall = { download(it, true) },
-                    )
-                    1 -> VersionsPage(
-                        versions = viewModel.versions,
-                        localVersionCode = viewModel.localVersionCode,
-                        isProviderAlive = viewModel.isProviderAlive,
-                        getProgress = { viewModel.getProgress(it) },
-                        onDownload = download
-                    )
-                    2 -> AboutPage(
-                        online = viewModel.online
-                    )
+            ) { index ->
+                pages.getOrNull(
+                    index % (pages.size)
+                )?.let { page ->
+                    when (page) {
+                        R.string.view_module_page_overview -> OverviewPage(
+                            online = viewModel.online,
+                            item = viewModel.lastVersionItem,
+                            local = viewModel.local,
+                            notifyUpdates = viewModel.notifyUpdates,
+                            isProviderAlive = viewModel.isProviderAlive,
+                            setUpdatesTag = viewModel::setUpdatesTag,
+                            onInstall = { download(it, true) },
+                        )
+
+                        R.string.view_module_page_readme -> ReadmePage(url = viewModel.readme)
+
+                        R.string.view_module_page_versions -> VersionsPage(
+                            versions = viewModel.versions,
+                            localVersionCode = viewModel.localVersionCode,
+                            isProviderAlive = viewModel.isProviderAlive,
+                            getProgress = { viewModel.getProgress(it) },
+                            onDownload = download
+                        )
+
+                        R.string.view_module_page_about -> AboutPage(
+                            online = viewModel.online
+                        )
+                    }
                 }
             }
         }

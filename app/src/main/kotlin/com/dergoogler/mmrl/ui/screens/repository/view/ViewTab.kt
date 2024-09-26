@@ -38,23 +38,10 @@ import kotlinx.coroutines.launch
 fun ViewTab(
     state: PagerState,
     updatableSize: Int,
-    hasAbout: Boolean,
+    pages: List<Int>,
     modifier: Modifier = Modifier
 ) {
     val scope = rememberCoroutineScope()
-
-    val pages = if (hasAbout) {
-        listOf(
-            R.string.view_module_page_overview,
-            R.string.view_module_page_versions,
-            R.string.view_module_page_about
-        )
-    } else {
-        listOf(
-            R.string.view_module_page_overview,
-            R.string.view_module_page_versions
-        )
-    }
 
     TabRow(
         modifier = modifier,
@@ -72,7 +59,9 @@ fun ViewTab(
             )
         }
     ) {
-        pages.forEachIndexed { index, text ->
+        pages.forEach {  text ->
+            val index = pages.indexOfFirst { it == text }
+
             Tab(
                 modifier = Modifier.padding(vertical = 12.dp),
                 selected = state.currentPage == index,

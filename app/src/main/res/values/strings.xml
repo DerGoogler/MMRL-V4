@@ -138,5 +138,6 @@
     <string name="screenshots">Screenshots\n</string>
     <string name="verified">Verified</string>
     <string name="unsupported">Unsupported</string>
+    <string name="view_module_page_readme">README</string>
 
 </resources>
