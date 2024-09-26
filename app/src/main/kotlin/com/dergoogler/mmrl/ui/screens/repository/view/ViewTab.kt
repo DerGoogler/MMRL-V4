@@ -75,7 +75,7 @@ fun ViewTab(
             ) {
                 BadgedBox(
                     badge = {
-                        if (index == 1 && updatableSize != 0) {
+                        if (text == R.string.view_module_page_versions && updatableSize != 0) {
                             Badge(
                                 containerColor = MaterialTheme.colorScheme.error
                             ) {
