@@ -31,8 +31,8 @@ data class OnlineModule(
     val verified: Boolean? = null,
 
     val root: ModuleRoot? =null,
-    val note: ModuleNote? = null
-    //features: ModuleFeatures
+    val note: ModuleNote? = null,
+    val features: ModuleFeatures? = null
 ) {
     val versionDisplay get() = Utils.getVersionDisplay(version, versionCode)
     val hasLicense

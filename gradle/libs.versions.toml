@@ -17,6 +17,7 @@ coilCompose = "2.1.0"
 hiddenApiRefine = "4.4.0"
 hilt = "2.51.1"
 kotlin = "2.0.0"
+kotlinReflect = "1.9.24"
 kotlinxCoroutines = "1.8.1"
 kotlinxDatetime = "0.6.0"
 ksp = "2.0.0-1.0.21"
@@ -54,6 +55,7 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinReflect" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 libsu-core = { group = "com.github.topjohnwu.libsu", name = "core", version.ref = "libsu" }

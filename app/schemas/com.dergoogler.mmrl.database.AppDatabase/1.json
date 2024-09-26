@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8da892b6eb5897ebc235f07575d04bfb",
+    "identityHash": "fe62ef02e4d9d33205893e3df85730bf",
     "entities": [
       {
         "tableName": "repos",
@@ -82,7 +82,7 @@
       },
       {
         "tableName": "onlineModules",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `repoUrl` TEXT NOT NULL, `name` TEXT NOT NULL, `version` TEXT NOT NULL, `versionCode` INTEGER NOT NULL, `author` TEXT NOT NULL, `description` TEXT NOT NULL, `maxApi` INTEGER, `minApi` INTEGER, `size` INTEGER, `categories` TEXT, `icon` TEXT, `homepage` TEXT, `donate` TEXT, `support` TEXT, `cover` TEXT, `screenshots` TEXT, `license` TEXT, `readme` TEXT, `require` TEXT, `verified` INTEGER, `magisk` TEXT, `kernelsu` TEXT, `apatch` TEXT, `color` TEXT, `title` TEXT, `message` TEXT, `type` TEXT NOT NULL, `added` REAL, `source` TEXT NOT NULL, `antifeatures` TEXT, PRIMARY KEY(`id`, `repoUrl`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `repoUrl` TEXT NOT NULL, `name` TEXT NOT NULL, `version` TEXT NOT NULL, `versionCode` INTEGER NOT NULL, `author` TEXT NOT NULL, `description` TEXT NOT NULL, `maxApi` INTEGER, `minApi` INTEGER, `size` INTEGER, `categories` TEXT, `icon` TEXT, `homepage` TEXT, `donate` TEXT, `support` TEXT, `cover` TEXT, `screenshots` TEXT, `license` TEXT, `readme` TEXT, `require` TEXT, `verified` INTEGER, `magisk` TEXT, `kernelsu` TEXT, `apatch` TEXT, `color` TEXT, `title` TEXT, `message` TEXT, `service` INTEGER, `postFsData` INTEGER, `resetprop` INTEGER, `sepolicy` INTEGER, `zygisk` INTEGER, `apks` INTEGER, `webroot` INTEGER, `postMount` INTEGER, `bootCompleted` INTEGER, `type` TEXT NOT NULL, `added` REAL, `source` TEXT NOT NULL, `antifeatures` TEXT, PRIMARY KEY(`id`, `repoUrl`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -244,6 +244,60 @@
             "fieldPath": "note.message",
             "columnName": "message",
             "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.service",
+            "columnName": "service",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.postFsData",
+            "columnName": "postFsData",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.resetprop",
+            "columnName": "resetprop",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.sepolicy",
+            "columnName": "sepolicy",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.zygisk",
+            "columnName": "zygisk",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.apks",
+            "columnName": "apks",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.webroot",
+            "columnName": "webroot",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.postMount",
+            "columnName": "postMount",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "features.bootCompleted",
+            "columnName": "bootCompleted",
+            "affinity": "INTEGER",
             "notNull": false
           },
           {
@@ -411,7 +465,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8da892b6eb5897ebc235f07575d04bfb')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fe62ef02e4d9d33205893e3df85730bf')"
     ]
   }
 }

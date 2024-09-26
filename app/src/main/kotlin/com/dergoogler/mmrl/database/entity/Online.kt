@@ -3,10 +3,12 @@ package com.dergoogler.mmrl.database.entity
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.TypeConverters
+import com.dergoogler.mmrl.model.online.ModuleFeatures
 import com.dergoogler.mmrl.model.online.ModuleNote
 import com.dergoogler.mmrl.model.online.ModuleRoot
 import com.dergoogler.mmrl.model.online.OnlineModule
 import com.dergoogler.mmrl.model.online.TrackJson
+import com.squareup.moshi.Json
 
 @Entity(tableName = "onlineModules", primaryKeys = ["id", "repoUrl"])
 data class OnlineModuleEntity(
@@ -34,8 +36,9 @@ data class OnlineModuleEntity(
     val require: List<String>? = null,
     val verified: Boolean? = null,
 
-    @Embedded val root: ModuleRootEntity? =null,
+    @Embedded val root: ModuleRootEntity? = null,
     @Embedded val note: ModuleNoteEntity? = null,
+    @Embedded val features: ModuleFeaturesEntity? = null,
     @Embedded val track: TrackJsonEntity
 ) {
     constructor(
@@ -51,6 +54,8 @@ data class OnlineModuleEntity(
         description = original.description,
         track = TrackJsonEntity(original.track),
         note = ModuleNoteEntity(original.note),
+        root = ModuleRootEntity(original.root),
+        features = ModuleFeaturesEntity(original.features),
         maxApi = original.maxApi,
         minApi = original.minApi,
         size = original.size,
@@ -76,6 +81,8 @@ data class OnlineModuleEntity(
         description = description,
         track = track.toTrack(),
         note = note?.toNote(),
+        root = root?.toRoot(),
+        features = features?.toFeatures(),
         versions = listOf(),
         maxApi = maxApi,
         minApi = minApi,
@@ -144,15 +151,56 @@ data class ModuleRootEntity(
     val kernelsu: String? = null,
     val apatch: String? = null,
 ) {
-    constructor(original: ModuleRoot) : this(
-        magisk = original.magisk,
-        kernelsu = original.kernelsu,
-        apatch = original.apatch,
+    constructor(original: ModuleRoot?) : this(
+        magisk = original?.magisk,
+        kernelsu = original?.kernelsu,
+        apatch = original?.apatch,
     )
 
-    fun toNote() = ModuleRoot(
+    fun toRoot() = ModuleRoot(
         magisk = magisk,
         kernelsu = kernelsu,
         apatch = apatch,
+    )
+}
+
+@Entity(tableName = "root")
+@TypeConverters
+data class ModuleFeaturesEntity(
+    val service: Boolean? = false,
+    @Json(name = "post_fs_data") val postFsData: Boolean? = false,
+    val resetprop: Boolean? = false,
+    val sepolicy: Boolean? = false,
+    val zygisk: Boolean? = false,
+    val apks: Boolean? = false,
+    val webroot: Boolean? = false,
+    @Json(name = "post_mount") val postMount: Boolean? = false,
+    @Json(name = "boot_completed") val bootCompleted: Boolean? = false,
+//    val modconf: Boolean? = false,
+) {
+    constructor(original: ModuleFeatures?) : this(
+        service = original?.service,
+        postFsData = original?.postFsData,
+        resetprop = original?.resetprop,
+        sepolicy = original?.sepolicy,
+        zygisk = original?.zygisk,
+        apks = original?.apks,
+        webroot = original?.webroot,
+        postMount = original?.postMount,
+        bootCompleted = original?.bootCompleted,
+//        modconf = original?.modconf,
+    )
+
+    fun toFeatures() = ModuleFeatures(
+        service = service,
+        postFsData = postFsData,
+        resetprop = resetprop,
+        sepolicy = sepolicy,
+        zygisk = zygisk,
+        apks = apks,
+        webroot = webroot,
+        postMount = postMount,
+        bootCompleted = bootCompleted,
+//        modconf = modconf,
     )
 }

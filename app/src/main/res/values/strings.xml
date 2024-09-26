@@ -139,5 +139,9 @@
     <string name="unknown_error">Unknown error</string>
     <string name="verified">Verified</string>
     <string name="unsupported">Unsupported</string>
+    <string name="open">Open</string>
+    <string name="help">Help</string>
+    <string name="view_module_help">Help</string>
+    <string name="view_module_features">Features</string>
 
 </resources>
