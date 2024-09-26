@@ -97,11 +97,11 @@ private fun BottomSheet(
             tonalElevation = 6.dp,
             border = BorderStroke(1.dp, color = MaterialTheme.colorScheme.outline)
         ) {
-            ModuleItem(
-                module = OnlineModule.example(),
-                state = OnlineState.example(),
-                enabled = false
-            )
+//            ModuleItem(
+//                module = OnlineModule.example(),
+//                state = OnlineState.example(),
+//                enabled = false
+//            )
         }
 
         Text(
