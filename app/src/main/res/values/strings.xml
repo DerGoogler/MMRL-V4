@@ -166,5 +166,6 @@
     <string name="view_module_features_webui">WebUI</string>
     <string name="view_module_features_post_mount">Post Mount</string>
     <string name="view_module_features_boot_completed">Boot completed</string>
+    <string name="module_config">Config</string>
 
 </resources>

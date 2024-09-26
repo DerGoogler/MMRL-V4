@@ -57,6 +57,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.activity.ModConfActivity"
+            android:exported="true"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".service.DownloadService"
             android:foregroundServiceType="dataSync"

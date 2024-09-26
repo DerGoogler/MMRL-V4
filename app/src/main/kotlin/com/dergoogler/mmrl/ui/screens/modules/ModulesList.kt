@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
@@ -30,6 +31,7 @@ import com.dergoogler.mmrl.R
 import com.dergoogler.mmrl.model.local.LocalModule
 import com.dergoogler.mmrl.model.local.State
 import com.dergoogler.mmrl.model.online.VersionItem
+import com.dergoogler.mmrl.ui.activity.ModConfActivity
 import com.dergoogler.mmrl.ui.component.VersionItemBottomSheet
 import com.dergoogler.mmrl.ui.component.scrollbar.VerticalFastScrollbar
 import com.dergoogler.mmrl.viewmodel.ModulesViewModel
@@ -86,7 +88,9 @@ fun ModuleItem(
         derivedStateOf { getModuleOps(module) }
     }
 
-    val item  = getVersionItem(module)
+    val context = LocalContext.current
+
+    val item = getVersionItem(module)
     val progress = getProgress(item)
 
     var open by remember { mutableStateOf(false) }
@@ -141,6 +145,15 @@ fun ModuleItem(
                 enabled = isProviderAlive,
                 onClick = ops.change
             )
+
+//            Spacer(modifier = Modifier.width(12.dp))
+//
+//            ModConf(
+//                enabled = isProviderAlive,
+//                onClick = {
+//                    ModConfActivity.start(context = context, modId = module.id)
+//                }
+//            )
         }
     )
 }
@@ -178,20 +191,44 @@ private fun RemoveOrRestore(
 ) {
     Icon(
         modifier = Modifier.size(20.dp),
-        painter = painterResource(id = if (module.state == State.REMOVE) {
-            R.drawable.rotate
-        } else {
-            R.drawable.trash
-        }),
+        painter = painterResource(
+            id = if (module.state == State.REMOVE) {
+                R.drawable.rotate
+            } else {
+                R.drawable.trash
+            }
+        ),
         contentDescription = null
     )
 
     Spacer(modifier = Modifier.width(6.dp))
     Text(
-        text = stringResource(id = if (module.state == State.REMOVE) {
-            R.string.module_restore
-        } else {
-            R.string.module_remove
-        })
+        text = stringResource(
+            id = if (module.state == State.REMOVE) {
+                R.string.module_restore
+            } else {
+                R.string.module_remove
+            }
+        )
+    )
+}
+
+@Composable
+private fun ModConf(
+    enabled: Boolean,
+    onClick: () -> Unit
+) = FilledTonalButton(
+    onClick = onClick,
+    enabled = enabled,
+    contentPadding = PaddingValues(horizontal = 12.dp)
+) {
+    Icon(
+        modifier = Modifier.size(20.dp),
+        painter = painterResource(id = R.drawable.settings),
+        contentDescription = null
+    )
+    Spacer(modifier = Modifier.width(6.dp))
+    Text(
+        text = stringResource(id = R.string.module_config)
     )
 }
