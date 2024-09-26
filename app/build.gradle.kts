@@ -11,16 +11,14 @@ plugins {
 }
 
 val baseVersionName = "4.24.32"
-val isDevVersion get() = exec("git tag --contains HEAD").isEmpty()
-val verNameSuffix get() = if (isDevVersion) ".dev" else ""
 
 android {
     namespace = "com.dergoogler.mmrl"
 
     defaultConfig {
-        applicationId = "${namespace}${verNameSuffix}"
-        versionName = "${baseVersionName}${verNameSuffix}.${commitId}"
-        versionCode = 9
+        applicationId = namespace
+        versionName = baseVersionName
+        versionCode = commitCount + 32432
 
         resourceConfigurations += arrayOf(
             "en",
@@ -64,11 +62,27 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("Boolean", "IS_DEV_VERSION", "false")
+            isDebuggable = false
+            isJniDebuggable = false
+            isRenderscriptDebuggable = false
+            renderscriptOptimLevel = 3
+            multiDexEnabled = false
+        }
+
+        debug {
+            buildConfigField("Boolean", "IS_DEV_VERSION", "true")
+            applicationIdSuffix = ".debug"
+            isJniDebuggable = true
+            isDebuggable = true
+            isRenderscriptDebuggable = true
+            renderscriptOptimLevel = 0
+            isMinifyEnabled = false
+            multiDexEnabled = false
         }
 
         all {
             signingConfig = releaseSigning
-            buildConfigField("Boolean", "IS_DEV_VERSION", isDevVersion.toString())
         }
     }
 
