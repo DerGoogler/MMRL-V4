@@ -1,6 +1,7 @@
 package com.dergoogler.mmrl.ui.screens.repository.view.pages
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.dergoogler.mmrl.R
 import com.dergoogler.mmrl.model.online.ModuleFeatures
 import com.dergoogler.mmrl.model.online.OnlineModule
+import com.dergoogler.mmrl.ui.component.LabelItem
 import com.dergoogler.mmrl.utils.extensions.isObjectEmpty
 import com.dergoogler.mmrl.utils.extensions.openUrl
 
@@ -42,6 +44,7 @@ fun AboutPage(
     HorizontalDivider(thickness = 0.9.dp)
 
     online.features?.let {
+        // TODO: find other way to check if is empty. build.gradle at exclude : "kotlin/**" to reduce size
         if (!it.isObjectEmpty()) {
             FeaturesItem(features = it)
 
@@ -107,51 +110,52 @@ private fun FeaturesItem(
 
     FeatureValueItem(
         feature = features.service,
-        key = "Service",
-        value = "Runs code later during boot (more system initialized)."
+        key = R.string.view_module_features_service,
+        value = R.string.view_module_features_service_sub
     )
     FeatureValueItem(
         feature = features.postFsData,
-        key = "Post FS Data",
-        value = "Runs code early after boot (partially booted system)."
+        key = R.string.view_module_features_post_fs_data,
+        value = R.string.view_module_features_post_fs_data_sub
     )
     FeatureValueItem(
         feature = features.resetprop,
-        key = "System Properties",
-        value = "Sets system properties loaded by Magisk's resetprop."
+        key = R.string.view_module_features_system_properties,
+        value = R.string.view_module_features_resetprop_sub
     )
     FeatureValueItem(
         feature = features.sepolicy,
-        key = "SELinux Policy",
-        value = "Adds custom security policies (SEPolicy rules)."
+        key = R.string.view_module_features_selinux_policy,
+        value = R.string.view_module_features_sepolicy_sub
     )
     FeatureValueItem(
         feature = features.zygisk,
-        key = "Zygisk",
-        value = "Allows modules to interact with the Zygisk framework, enabling system-level modifications and interactions."
+        key = R.string.view_module_features_zygisk,
+        value = R.string.view_module_features_zygisk_sub
     )
     FeatureValueItem(
         feature = features.apks,
-        key = "APKs",
-        value = "Including additional APKs inside the module."
+        key = R.string.view_module_features_apks,
+        value = R.string.view_module_features_apks_sub
     )
     FeatureValueItem(
         feature = features.webroot,
-        key = "WebUI",
-        value = "Web interface for managing modules (KernelSU & APatch, not Magisk)."
+        key = R.string.view_module_features_webui,
+        value = R.string.view_module_features_webui_sub,
+        rootSolutions = listOf("KernelSU", "APatch")
     )
     FeatureValueItem(
         feature = features.postMount,
-        key = "Post Mount",
-        value = " Script execution after overlayfs mounts (KernelSU & APatch)."
+        key = R.string.view_module_features_post_mount,
+        value = R.string.view_module_features_postmount_sub,
+        rootSolutions = listOf("KernelSU", "APatch")
     )
     FeatureValueItem(
         feature = features.bootCompleted,
-        key = "Boot completed",
-        value = " Script execution after boot completes (KernelSU & APatch)."
+        key = R.string.view_module_features_boot_completed,
+        value = R.string.view_module_features_bootcompleted_sub,
+        rootSolutions = listOf("KernelSU", "APatch")
     )
-    // FeatureValueItem(feature = features.modconf, key ="ModConf", value ="Module configuration files for MMRL (not Magisk, KernelSU).")
-
 }
 
 
@@ -205,26 +209,39 @@ private fun ValueItem(
 @Composable
 private fun FeatureValueItem(
     feature: Boolean?,
-    key: String,
-    value: String?,
-    modifier: Modifier = Modifier
+    @StringRes key: Int,
+    @StringRes value: Int,
+    modifier: Modifier = Modifier,
+    rootSolutions: List<String>? = null,
 ) {
-    if (feature == null || value.isNullOrBlank()) return
+    if (feature == null) return
 
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(4.dp)
     ) {
         Text(
-            text = key,
+            text = stringResource(id = key),
             style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Text(
-            text = value,
+            text = stringResource(id = value),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.outline
         )
+        rootSolutions?.let {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(2.dp)
+            ) {
+                rootSolutions.forEach { root ->
+                    LabelItem(
+                        text = root,
+                    )
+                }
+            }
+        }
     }
 }

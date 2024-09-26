@@ -269,35 +269,35 @@ private fun ValueItem(
 @Composable
 private fun ScreenshotsItem(
     images: List<String>,
+) = Column(
+    modifier = Modifier
+        .padding(all = 16.dp)
+        .fillMaxWidth(),
+    verticalArrangement = Arrangement.spacedBy(16.dp)
 ) {
-    Column(
-        modifier = Modifier
-            .padding(all = 16.dp)
-            .fillMaxWidth(),
-    ) {
-        Text(
-            text = stringResource(id = R.string.view_module_screenshots),
-            style = MaterialTheme.typography.titleSmall,
-            color = MaterialTheme.colorScheme.primary
-        )
+    Text(
+        text = stringResource(id = R.string.view_module_screenshots),
+        style = MaterialTheme.typography.titleSmall,
+        color = MaterialTheme.colorScheme.primary
+    )
 
-        LazyRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            items(images.size) { imageUrl ->
-                AsyncImage(
-                    model = images[imageUrl],
-                    contentDescription = null,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .clip(RoundedCornerShape(8.dp)),
-                    contentScale = ContentScale.Crop
-                )
-            }
+    LazyRow(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        items(images.size) { imageUrl ->
+            AsyncImage(
+                model = images[imageUrl],
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .clip(RoundedCornerShape(8.dp)),
+                contentScale = ContentScale.Crop
+            )
         }
     }
 }
+
 
 fun formatFileSize(sizeInBytes: Int): String {
     if (sizeInBytes < 1024) return "$sizeInBytes B"

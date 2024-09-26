@@ -30,11 +30,13 @@
     <string name="repository_empty">Repository is empty</string>
     <string name="module_installed">Installed</string>
     <string name="module_new">New</string>
+
     <!-- Advanced Menu -->
     <string name="menu_pin_installed">Pin Installed</string>
     <string name="menu_pin_updatable">Pin Updatable</string>
     <string name="menu_show_icon">Show Icon</string>
     <string name="menu_show_license">Show License</string>
+
     <!-- View Module -->
     <string name="view_module_page_overview">Overview</string>
     <string name="view_module_page_versions">Versions</string>
@@ -57,6 +59,20 @@
     <string name="view_module_added">Added at: %s</string>
     <string name="view_module_file_size">File Size</string>
     <string name="view_module_screenshots">Screenshots</string>
+    <string name="view_module_help">Help</string>
+
+    <!-- View Module / Features -->
+    <string name="view_module_features">Features</string>
+    <string name="view_module_features_service_sub">Runs code later during boot (more system initialized).</string>
+    <string name="view_module_features_post_fs_data_sub">Runs code early after boot (partially booted system).</string>
+    <string name="view_module_features_resetprop_sub">Sets system properties loaded by Magisk\'s resetprop.</string>
+    <string name="view_module_features_sepolicy_sub">Adds custom security policies (SEPolicy rules).</string>
+    <string name="view_module_features_zygisk_sub">Allows modules to interact with the Zygisk framework, enabling system-level modifications and interactions.</string>
+    <string name="view_module_features_apks_sub">Including additional APKs inside the module.</string>
+    <string name="view_module_features_webui_sub">Web interface for managing modules (KernelSU &amp; APatch, not Magisk).></string>
+    <string name="view_module_features_postmount_sub">Script execution after OverlayFS mounts (KernelSU &amp; APatch).></string>
+    <string name="view_module_features_bootcompleted_sub">Script execution after boot completes (KernelSU &amp; APatch).></string>
+
 
     <!-- Modules -->
     <string name="modules_empty">No modules found</string>
@@ -141,7 +157,14 @@
     <string name="unsupported">Unsupported</string>
     <string name="open">Open</string>
     <string name="help">Help</string>
-    <string name="view_module_help">Help</string>
-    <string name="view_module_features">Features</string>
+    <string name="view_module_features_service">Service</string>
+    <string name="view_module_features_post_fs_data">Post FS Data</string>
+    <string name="view_module_features_system_properties">System Properties</string>
+    <string name="view_module_features_selinux_policy">SELinux Policy</string>
+    <string name="view_module_features_zygisk">Zygisk</string>
+    <string name="view_module_features_apks">APKs</string>
+    <string name="view_module_features_webui">WebUI</string>
+    <string name="view_module_features_post_mount">Post Mount</string>
+    <string name="view_module_features_boot_completed">Boot completed</string>
 
 </resources>
