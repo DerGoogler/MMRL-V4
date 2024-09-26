@@ -14,30 +14,46 @@ data class OnlineModule(
     val track: TrackJson,
     val versions: List<VersionItem>,
 
-    val maxApi: Int? = 0,
-    val minApi: Int? = 0,
+    val maxApi: Int? = null,
+    val minApi: Int? = null,
 
-    val size: Int = 0,
-    val categories: List<String> = emptyList(),
-    val icon: String = "",
-    val homepage: String = "",
-    val donate: String = "",
-    val support: String = "",
-    val cover: String = "",
-    val screenshots: List<String> = emptyList(),
-    val license: String = "",
-    val readme: String = "",
-    val require: List<String> = emptyList(),
-    val verified: Boolean = false,
+    val size: Int? = null,
+    val categories: List<String>? = null,
+    val icon: String? = null,
+    val homepage: String? = null,
+    val donate: String? = null,
+    val support: String? = null,
+    val cover: String? = null,
+    val screenshots: List<String>? = null,
+    val license: String? = "",
+    val readme: String? = null,
+    val require: List<String>? = null,
+    val verified: Boolean? = null,
 
-    val root: ModuleRoot = ModuleRoot(magisk = "", kernelsu = "", apatch = ""),
-    val note: ModuleNote = ModuleNote(title = "", message = "", color = "")
+    val root: ModuleRoot? =null,
+    val note: ModuleNote? = null
     //features: ModuleFeatures
 ) {
     val versionDisplay get() = Utils.getVersionDisplay(version, versionCode)
     val hasLicense
-        get() = license.isNotBlank()
-                && license.uppercase() != "UNKNOWN"
+        get() = license.orEmpty().isNotBlank()
+                && license.orEmpty().uppercase() != "UNKNOWN"
+
+    val hasRequire = require.orEmpty().isNotEmpty()
+    val hasIcon = icon.orEmpty().isNotEmpty()
+    val hasHomepage = homepage.orEmpty().isNotEmpty()
+    val hasDonate = donate.orEmpty().isNotEmpty()
+    val hasSupport = support.orEmpty().isNotEmpty()
+    val hasCover = cover.orEmpty().isNotEmpty()
+    val hasScreenshots = screenshots.orEmpty().isNotEmpty()
+    val hasRoot = root != null
+    val hasNote = note != null
+    val hasReadme = readme.orEmpty().isNotEmpty()
+    val hasCategories = categories.orEmpty().isNotEmpty()
+    val hasMaxApi = maxApi != null
+    val hasMinApi = minApi != null
+    val hasSize = size != null
+    val isVerified = verified != null && verified
 
 
     override fun equals(other: Any?): Boolean {

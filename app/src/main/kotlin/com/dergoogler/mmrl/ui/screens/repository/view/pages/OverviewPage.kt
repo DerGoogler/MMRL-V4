@@ -55,18 +55,17 @@ fun OverviewPage(
         .verticalScroll(rememberScrollState())
 ) {
 
-    if (online.note.isNotEmpty()) {
-        Alert(
-            backgroundColor = online.note.backgroundColor(),
-            textColor = online.note.textColor(),
-            title = online.note.title,
-            message = online.note.message,
-            modifier = Modifier.padding(top = 8.dp, end = 8.dp, start = 8.dp, bottom = 4.dp)
-        )
+    online.note?.let {
+        it.message?.let { it1 ->
+            Alert(
+                backgroundColor = it.backgroundColor(),
+                textColor = it.textColor(),
+                title = it.title,
+                message = it1,
+                modifier = Modifier.padding(top = 8.dp, end = 8.dp, start = 8.dp, bottom = 4.dp)
+            )
+        }
     }
-
-
-
 
     Column(
         modifier = Modifier
@@ -110,17 +109,19 @@ fun OverviewPage(
         HorizontalDivider(thickness = 0.9.dp)
     }
 
-    if (online.screenshots.isNotEmpty()) {
-        ScreenshotsItem(images = online.screenshots)
+    online.screenshots?.let {
+        if (it.isNotEmpty()) {
+            ScreenshotsItem(images = it)
 
-        HorizontalDivider(thickness = 0.9.dp)
+            HorizontalDivider(thickness = 0.9.dp)
+        }
     }
 }
 
 @Composable
 private fun CloudItem(
     item: VersionItem,
-    size: Int,
+    size: Int?,
     isProviderAlive: Boolean,
     onInstall: (VersionItem) -> Unit
 ) = Column(
@@ -165,11 +166,12 @@ private fun CloudItem(
         value = item.timestamp.toDateTime()
     )
 
-    ValueItem(
-        key = stringResource(id = R.string.file_size),
-        value = formatFileSize(size)
-    )
-
+    size?.let {
+        ValueItem(
+            key = stringResource(id = R.string.file_size),
+            value = formatFileSize(it)
+        )
+    }
 }
 
 @Composable

@@ -88,14 +88,14 @@ private fun topBarContent(
 
     val context = LocalContext.current
     val hasLicense = module.hasLicense
-    val hasDonate = module.donate.isNotBlank()
+    val hasDonate = module.donate.orEmpty().isNotBlank()
 
     Row(
         modifier = Modifier.padding(horizontal = 16.dp),
         verticalAlignment = Alignment.Top
     ) {
         if (repositoryMenu.showIcon) {
-            if (module.icon.isNotEmpty()) {
+            if (module.icon.orEmpty().isNotEmpty()) {
                 AsyncImage(
                     model = module.icon,
                     modifier = Modifier
@@ -145,12 +145,14 @@ private fun topBarContent(
                 color = MaterialTheme.colorScheme.outline
             )
 
-            if (module.root.isSupported(rootVersionName)) {
-                Text(
-                    text = stringResource(R.string.unsupported),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onError
-                )
+            module.root?.let {
+                if (!it.isSupported(rootVersionName)) {
+                    Text(
+                        text = stringResource(R.string.unsupported),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onError
+                    )
+                }
             }
         }
     }
@@ -166,16 +168,18 @@ private fun topBarContent(
             tracks = tracks
         )
 
-        if (hasLicense) {
+
+        module.license?.let {
             LicenseItem(
-                licenseId = module.license
+                licenseId = it
             )
         }
 
-        if (hasDonate) {
+
+        module.donate?.let {
             TagItem(
                 icon = R.drawable.currency_dollar,
-                onClick = { context.openUrl(module.donate) }
+                onClick = { context.openUrl(it) }
             )
         }
     }

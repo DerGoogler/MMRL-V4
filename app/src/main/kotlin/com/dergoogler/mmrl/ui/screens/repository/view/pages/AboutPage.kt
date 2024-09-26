@@ -36,11 +36,13 @@ fun AboutPage(
         .fillMaxSize()
         .verticalScroll(rememberScrollState())
 ) {
-    ValueItem(
+    online.homepage?.let {
+        ValueItem(
         key = stringResource(id = R.string.view_module_homepage),
-        value = online.homepage,
+        value = it,
         icon = R.drawable.world_www
     )
+    }
 
     ValueItem(
         key = stringResource(id = R.string.view_module_source),
@@ -48,11 +50,13 @@ fun AboutPage(
         icon = R.drawable.brand_git
     )
 
-    ValueItem(
+    online.support?.let {
+        ValueItem(
         key = stringResource(id = R.string.view_module_support),
-        value = online.support,
+        value = it,
         icon = R.drawable.heart_handshake
     )
+    }
 }
 
 @Composable

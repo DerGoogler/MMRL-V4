@@ -18,28 +18,24 @@ data class OnlineModuleEntity(
     val author: String,
     val description: String,
 
-    val maxApi: Int? = 0,
-    val minApi: Int? = 0,
+    val maxApi: Int? = null,
+    val minApi: Int? = null,
 
-    val size: Int = 0,
-    val categories: List<String> = emptyList(),
-    val icon: String = "",
-    val homepage: String = "",
-    val donate: String = "",
-    val support: String = "",
-    val cover: String = "",
-    val screenshots: List<String> = emptyList(),
-    val license: String = "",
-    val readme: String = "",
-    val require: List<String> = emptyList(),
-    val verified: Boolean = false,
+    val size: Int? = null,
+    val categories: List<String>? = null,
+    val icon: String? = null,
+    val homepage: String? = null,
+    val donate: String? = null,
+    val support: String? = null,
+    val cover: String? = null,
+    val screenshots: List<String>? = null,
+    val license: String? = "",
+    val readme: String? = null,
+    val require: List<String>? = null,
+    val verified: Boolean? = null,
 
-    @Embedded val root: ModuleRootEntity = ModuleRootEntity(
-        magisk = "",
-        kernelsu = "",
-        apatch = ""
-    ),
-    @Embedded val note: ModuleNoteEntity = ModuleNoteEntity(color = "", title = "", message = ""),
+    @Embedded val root: ModuleRootEntity? =null,
+    @Embedded val note: ModuleNoteEntity? = null,
     @Embedded val track: TrackJsonEntity
 ) {
     constructor(
@@ -79,7 +75,7 @@ data class OnlineModuleEntity(
         author = author,
         description = description,
         track = track.toTrack(),
-        note = note.toNote(),
+        note = note?.toNote(),
         versions = listOf(),
         maxApi = maxApi,
         minApi = minApi,
@@ -104,7 +100,7 @@ data class TrackJsonEntity(
     val type: String,
     val added: Float? = 0f,
     val source: String,
-    val antifeatures: List<String> = emptyList(),
+    val antifeatures: List<String>? = null,
 ) {
     constructor(original: TrackJson) : this(
         type = original.type.name,
@@ -124,14 +120,14 @@ data class TrackJsonEntity(
 @Entity(tableName = "note")
 @TypeConverters
 data class ModuleNoteEntity(
-    val color: String = "",
-    val title: String = "",
-    val message: String = "",
+    val color: String? = null,
+    val title: String? = null,
+    val message: String? = null,
 ) {
-    constructor(original: ModuleNote) : this(
-        color = original.color,
-        title = original.title,
-        message = original.message,
+    constructor(original: ModuleNote?) : this(
+        color = original?.color,
+        title = original?.title,
+        message = original?.message,
     )
 
     fun toNote() = ModuleNote(
@@ -144,9 +140,9 @@ data class ModuleNoteEntity(
 @Entity(tableName = "root")
 @TypeConverters
 data class ModuleRootEntity(
-    val magisk: String = "",
-    val kernelsu: String = "",
-    val apatch: String = "",
+    val magisk: String? = null,
+    val kernelsu: String? = null,
+    val apatch: String? = null,
 ) {
     constructor(original: ModuleRoot) : this(
         magisk = original.magisk,

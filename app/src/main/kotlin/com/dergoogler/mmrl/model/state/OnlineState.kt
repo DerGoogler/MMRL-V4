@@ -27,7 +27,7 @@ data class OnlineState(
             return OnlineState(
                 installed = installed,
                 updatable = updatable,
-                hasLicense = license!!.isNotBlank(),
+                hasLicense = license.orEmpty().isNotBlank(),
                 lastUpdated = versions.firstOrNull()?.timestamp ?: 1473339588.0f
             )
         }

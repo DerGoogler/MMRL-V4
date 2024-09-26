@@ -5,13 +5,15 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class ModuleNote(
-    val color: String = "",
-    val title: String = "",
-    val message: String = "",
+    val color: String? = null,
+    val title: String? = null,
+    val message: String? = null,
 ) {
-    fun isNotEmpty() = color.isNotEmpty() && title.isNotEmpty() && message.isNotEmpty()
+    fun isNotEmpty() =
+        color.orEmpty().isNotEmpty() || title.orEmpty().isNotEmpty() || message.orEmpty()
+            .isNotEmpty()
 
-    val textColor= {
+    val textColor = {
         when (color) {
             "red" -> Color(0xFFB71C1C)
             "blue" -> Color(0xFF0D47A1)

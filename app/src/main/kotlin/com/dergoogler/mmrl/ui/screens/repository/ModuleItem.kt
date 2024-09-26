@@ -47,14 +47,14 @@ fun ModuleItem(
     val userPreferences = LocalUserPreferences.current
     val menu = userPreferences.repositoryMenu
     val hasLabel = (state.hasLicense && menu.showLicense)
-            || state.installed || module.verified
+            || state.installed || module.isVerified
 
     Row(
         modifier = Modifier.padding(all = 10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         if (menu.showIcon) {
-            if (module.icon.isNotEmpty()) {
+            if (module.icon.orEmpty().isNotEmpty()) {
                 AsyncImage(
                     model = module.icon,
                     modifier = Modifier
@@ -117,13 +117,13 @@ fun ModuleItem(
                     horizontalArrangement = Arrangement.spacedBy(2.dp)
                 ) {
 
-                    if (module.verified) {
+                    if (module.isVerified) {
                         // TODO: replace with icon
                         LabelItem(text = stringResource(id = R.string.verified))
                     }
 
                     if (menu.showLicense && module.hasLicense) {
-                        LabelItem(text = module.license)
+                        module.license?.let { LabelItem(text = it) }
                     }
 
                     when {
