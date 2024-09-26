@@ -168,7 +168,7 @@ private fun CloudItem(
 
     size?.let {
         ValueItem(
-            key = stringResource(id = R.string.file_size),
+            key = stringResource(id = R.string.view_module_file_size),
             value = formatFileSize(it)
         )
     }
@@ -276,7 +276,7 @@ private fun ScreenshotsItem(
             .fillMaxWidth(),
     ) {
         Text(
-            text = stringResource(id = R.string.screenshots),
+            text = stringResource(id = R.string.view_module_screenshots),
             style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.primary
         )

@@ -39,6 +39,7 @@
     <string name="view_module_page_overview">Overview</string>
     <string name="view_module_page_versions">Versions</string>
     <string name="view_module_page_about">About</string>
+    <string name="view_module_page_readme">Readme</string>
     <string name="view_module_description">Description</string>
     <string name="view_module_cloud">Cloud</string>
     <string name="view_module_version">Version</string>
@@ -54,6 +55,8 @@
     <string name="view_module_view_track">View Track</string>
     <string name="view_module_type">Type: %s</string>
     <string name="view_module_added">Added at: %s</string>
+    <string name="view_module_file_size">File Size</string>
+    <string name="view_module_screenshots">Screenshots</string>
 
     <!-- Modules -->
     <string name="modules_empty">No modules found</string>
@@ -134,10 +137,7 @@
 
     <!-- Other -->
     <string name="unknown_error">Unknown error</string>
-    <string name="file_size">File Size</string>
-    <string name="screenshots">Screenshots\n</string>
     <string name="verified">Verified</string>
     <string name="unsupported">Unsupported</string>
-    <string name="view_module_page_readme">README</string>
 
 </resources>
