@@ -103,17 +103,17 @@ fun AboutScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                FilledTonalButton(
-                    onClick = { context.openUrl(Const.TRANSLATE_URL) }
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.weblate),
-                        contentDescription = null,
-                        modifier = Modifier.size(ButtonDefaults.IconSize)
-                    )
-                    Spacer(modifier = Modifier.width(ButtonDefaults.IconSpacing))
-                    Text(text = stringResource(id = R.string.about_weblate))
-                }
+//                FilledTonalButton(
+//                    onClick = { context.openUrl(Const.TRANSLATE_URL) }
+//                ) {
+//                    Icon(
+//                        painter = painterResource(id = R.drawable.weblate),
+//                        contentDescription = null,
+//                        modifier = Modifier.size(ButtonDefaults.IconSize)
+//                    )
+//                    Spacer(modifier = Modifier.width(ButtonDefaults.IconSpacing))
+//                    Text(text = stringResource(id = R.string.about_weblate))
+//                }
 
                 FilledTonalButton(
                     onClick = { context.openUrl(Const.TELEGRAM_URL) }

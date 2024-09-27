@@ -10,7 +10,9 @@ object Const {
 
     const val SANMER_GITHUB_URL = "https://github.com/SanmerDev"
     const val GOOGLER_GITHUB_URL = "https://github.com/DerGoogler"
-    const val TRANSLATE_URL = "https://weblate.sanmer.app/engage/mrepo"
+    const val SUPPORTED_REPOS_URL =
+        "https://github.com/DerGoogler/MMRL/wiki/Supported-Repositories-in-MMRL"
+    const val TRANSLATE_URL = "https://example.com/translate"
     const val GITHUB_URL = "https://github.com/DerGoogler/MMRL"
     const val TELEGRAM_URL = "https://t.me/GooglersRepo"
     const val DEMO_REPO_URL = "https://gr.dergoogler.com/gmr/"

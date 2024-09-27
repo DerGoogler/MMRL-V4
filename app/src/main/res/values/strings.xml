@@ -36,6 +36,8 @@
     <string name="menu_pin_updatable">Pin Updatable</string>
     <string name="menu_show_icon">Show Icon</string>
     <string name="menu_show_license">Show License</string>
+    <string name="menu_show_cover">Show Cover</string>
+    <string name="menu_show_verified">Show Verified</string>
 
     <!-- View Module -->
     <string name="view_module_page_overview">Overview</string>
@@ -63,6 +65,15 @@
 
     <!-- View Module / Features -->
     <string name="view_module_features">Features</string>
+    <string name="view_module_features_service">Service</string>
+    <string name="view_module_features_post_fs_data">Post FS Data</string>
+    <string name="view_module_features_system_properties">System Properties</string>
+    <string name="view_module_features_selinux_policy">SELinux Policy</string>
+    <string name="view_module_features_zygisk">Zygisk</string>
+    <string name="view_module_features_apks">APKs</string>
+    <string name="view_module_features_webui">WebUI</string>
+    <string name="view_module_features_post_mount">Post Mount</string>
+    <string name="view_module_features_boot_completed">Boot completed</string>
     <string name="view_module_features_service_sub">Runs code later during boot (more system initialized).</string>
     <string name="view_module_features_post_fs_data_sub">Runs code early after boot (partially booted system).</string>
     <string name="view_module_features_resetprop_sub">Sets system properties loaded by Magisk\'s resetprop.</string>
@@ -90,6 +101,8 @@
     <string name="settings_repo">Repositories</string>
     <string name="settings_repo_desc">Manage Magisk modules repositories</string>
     <string name="settings_about">About</string>
+    <string name="settings_supported_repo">Supported Repositories</string>
+    <string name="settings_supported_repo_desc">A list of repos supported repositories in MMRL</string>
     <!-- Root Item -->
     <string name="settings_root_access">Root Access: %s</string>
     <string name="settings_root_provider">Provider: %s</string>
@@ -157,17 +170,6 @@
     <string name="unsupported">Unsupported</string>
     <string name="open">Open</string>
     <string name="help">Help</string>
-    <string name="view_module_features_service">Service</string>
-    <string name="view_module_features_post_fs_data">Post FS Data</string>
-    <string name="view_module_features_system_properties">System Properties</string>
-    <string name="view_module_features_selinux_policy">SELinux Policy</string>
-    <string name="view_module_features_zygisk">Zygisk</string>
-    <string name="view_module_features_apks">APKs</string>
-    <string name="view_module_features_webui">WebUI</string>
-    <string name="view_module_features_post_mount">Post Mount</string>
-    <string name="view_module_features_boot_completed">Boot completed</string>
     <string name="module_config">Config</string>
-    <string name="menu_show_cover">Show Cover</string>
-    <string name="menu_show_verified">Show Verified</string>
 
 </resources>

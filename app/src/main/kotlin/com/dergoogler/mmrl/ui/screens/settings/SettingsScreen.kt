@@ -13,11 +13,13 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.dergoogler.mmrl.BuildConfig
 import com.dergoogler.mmrl.R
+import com.dergoogler.mmrl.app.Const
 import com.dergoogler.mmrl.datastore.UserPreferencesCompat.Companion.isNonRoot
 import com.dergoogler.mmrl.datastore.UserPreferencesCompat.Companion.isRoot
 import com.dergoogler.mmrl.datastore.WorkingMode
@@ -29,6 +31,7 @@ import com.dergoogler.mmrl.ui.screens.settings.items.NonRootItem
 import com.dergoogler.mmrl.ui.screens.settings.items.RootItem
 import com.dergoogler.mmrl.ui.utils.navigateSingleTopTo
 import com.dergoogler.mmrl.ui.utils.none
+import com.dergoogler.mmrl.utils.extensions.openUrl
 import com.dergoogler.mmrl.viewmodel.SettingsViewModel
 
 @Composable
@@ -38,6 +41,8 @@ fun SettingsScreen(
 ) {
     val userPreferences = LocalUserPreferences.current
     val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+
+    val context = LocalContext.current
 
     Scaffold(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -59,6 +64,7 @@ fun SettingsScreen(
                     isAlive = viewModel.isProviderAlive,
                     version = viewModel.version
                 )
+
                 userPreferences.workingMode.isNonRoot -> NonRootItem()
             }
 
@@ -81,14 +87,25 @@ fun SettingsScreen(
             )
 
             SettingNormalItem(
+                icon = R.drawable.brand_cloudflare,
+                title = stringResource(id = R.string.settings_supported_repo),
+                desc = stringResource(id = R.string.settings_supported_repo_desc),
+                onClick = {
+                    context.openUrl(Const.SUPPORTED_REPOS_URL)
+                }
+            )
+
+            SettingNormalItem(
                 icon = R.drawable.components,
                 title = stringResource(id = R.string.setup_mode),
-                desc = stringResource(id = when (userPreferences.workingMode) {
-                    WorkingMode.MODE_ROOT -> R.string.setup_root_title
-                    WorkingMode.MODE_SHIZUKU -> R.string.setup_shizuku_title
-                    WorkingMode.MODE_NON_ROOT -> R.string.setup_non_root_title
-                    else -> R.string.settings_root_none
-                }),
+                desc = stringResource(
+                    id = when (userPreferences.workingMode) {
+                        WorkingMode.MODE_ROOT -> R.string.setup_root_title
+                        WorkingMode.MODE_SHIZUKU -> R.string.setup_shizuku_title
+                        WorkingMode.MODE_NON_ROOT -> R.string.setup_non_root_title
+                        else -> R.string.settings_root_none
+                    }
+                ),
                 onClick = {
                     navController.navigateSingleTopTo(SettingsScreen.WorkingMode.route)
                 }
