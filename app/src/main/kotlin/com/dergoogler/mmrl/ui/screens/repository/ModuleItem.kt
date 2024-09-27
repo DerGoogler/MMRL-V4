@@ -58,7 +58,8 @@ fun ModuleItem(
     val userPreferences = LocalUserPreferences.current
     val menu = userPreferences.repositoryMenu
     val hasLabel = (state.hasLicense && menu.showLicense)
-            || state.installed || module.isVerified
+            || state.installed
+    val isVerified = module.isVerified && menu.showVerified
 
     Box(
         modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center
@@ -66,31 +67,33 @@ fun ModuleItem(
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
-            module.cover?.let {
-                if (it.isNotEmpty()) {
+            if (menu.showCover) {
+                module.cover?.let {
+                    if (it.isNotEmpty()) {
 
-                    val painter = rememberAsyncImagePainter(
-                        model = it,
-                    )
-
-                    if (painter.state !is AsyncImagePainter.State.Error) {
-                        Image(
-                            painter = painter,
-                            contentDescription = null,
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .aspectRatio(2.048f)
+                        val painter = rememberAsyncImagePainter(
+                            model = it,
                         )
-                    } else {
-                        Logo(
-                            icon = R.drawable.alert_triangle,
-                            shape = RoundedCornerShape(0.dp),
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .aspectRatio(2.048f)
 
-                        )
+                        if (painter.state !is AsyncImagePainter.State.Error) {
+                            Image(
+                                painter = painter,
+                                contentDescription = null,
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .aspectRatio(2.048f)
+                            )
+                        } else {
+                            Logo(
+                                icon = R.drawable.alert_triangle,
+                                shape = RoundedCornerShape(0.dp),
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .aspectRatio(2.048f)
+
+                            )
+                        }
                     }
                 }
             }
@@ -115,7 +118,7 @@ fun ModuleItem(
                             textDecoration = decoration,
                             overflow = TextOverflow.Ellipsis
                         )
-                        if (module.isVerified) {
+                        if (isVerified) {
                             Spacer(modifier = Modifier.width(4.dp))
 
                             val iconSize =
@@ -174,12 +177,6 @@ fun ModuleItem(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(4.dp)
                 ) {
-
-                    if (module.isVerified) {
-                        // TODO: replace with icon
-                        LabelItem(text = stringResource(id = R.string.verified))
-                    }
-
                     if (menu.showLicense && module.hasLicense) {
                         module.license?.let { LabelItem(text = it) }
                     }

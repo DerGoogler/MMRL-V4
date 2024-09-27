@@ -7,7 +7,9 @@ data class RepositoryMenuCompat(
     val pinUpdatable: Boolean,
     val showIcon: Boolean,
     val showLicense: Boolean,
-    val showUpdatedTime: Boolean
+    val showUpdatedTime: Boolean,
+    val showCover: Boolean,
+    val showVerified: Boolean,
 ) {
     constructor(original: RepositoryMenu) : this(
         option = original.option,
@@ -16,7 +18,9 @@ data class RepositoryMenuCompat(
         pinUpdatable = original.pinUpdatable,
         showIcon = original.showIcon,
         showLicense = original.showLicense,
-        showUpdatedTime = original.showUpdatedTime
+        showUpdatedTime = original.showUpdatedTime,
+        showCover = original.showCover,
+        showVerified = original.showVerified
     )
 
     fun toProto(): RepositoryMenu = RepositoryMenu.newBuilder()
@@ -27,6 +31,8 @@ data class RepositoryMenuCompat(
         .setShowIcon(showIcon)
         .setShowLicense(showLicense)
         .setShowUpdatedTime(showUpdatedTime)
+        .setShowCover(showCover)
+        .setShowVerified(showVerified)
         .build()
 
     companion object {
@@ -37,7 +43,9 @@ data class RepositoryMenuCompat(
             pinUpdatable = true,
             showIcon = true,
             showLicense = true,
-            showUpdatedTime = true
+            showUpdatedTime = true,
+            showCover = true,
+            showVerified = true
         )
     }
 }

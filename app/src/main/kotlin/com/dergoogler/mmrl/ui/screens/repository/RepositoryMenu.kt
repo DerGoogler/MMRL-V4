@@ -91,18 +91,18 @@ private fun BottomSheet(
         modifier = Modifier.padding(all = 18.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Surface(
-            modifier = Modifier.padding(bottom = 8.dp),
-            shape = RoundedCornerShape(10.dp),
-            tonalElevation = 6.dp,
-            border = BorderStroke(1.dp, color = MaterialTheme.colorScheme.outline)
-        ) {
+//        Surface(
+//            modifier = Modifier.padding(bottom = 8.dp),
+//            shape = RoundedCornerShape(10.dp),
+//            tonalElevation = 6.dp,
+//            border = BorderStroke(1.dp, color = MaterialTheme.colorScheme.outline)
+//        ) {
 //            ModuleItem(
 //                module = OnlineModule.example(),
 //                state = OnlineState.example(),
 //                enabled = false
 //            )
-        }
+//        }
 
         Text(
             text = stringResource(id = R.string.menu_sort_mode),
@@ -159,6 +159,16 @@ private fun BottomSheet(
                 onClick = { setMenu(menu.copy(showIcon = !menu.showIcon)) },
                 label = { Text(text = stringResource(id = R.string.menu_show_icon)) }
             )
+
+            MenuChip(
+                selected = menu.showCover,
+                onClick = { setMenu(menu.copy(showCover = !menu.showCover)) },
+                label = { Text(text = stringResource(id = R.string.menu_show_cover)) }
+            )
+
+            MenuChip(selected = menu.showVerified,
+                onClick = { setMenu(menu.copy(showVerified = !menu.showVerified)) },
+                label = { Text(text = stringResource(id = R.string.menu_show_verified)) })
 
             MenuChip(
                 selected = menu.showLicense,

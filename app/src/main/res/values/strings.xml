@@ -167,5 +167,7 @@
     <string name="view_module_features_post_mount">Post Mount</string>
     <string name="view_module_features_boot_completed">Boot completed</string>
     <string name="module_config">Config</string>
+    <string name="menu_show_cover">Show Cover</string>
+    <string name="menu_show_verified">Show Verified</string>
 
 </resources>

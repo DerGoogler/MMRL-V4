@@ -16,4 +16,6 @@ message RepositoryMenu {
   bool showIcon = 5;
   bool showLicense = 6;
   bool showUpdatedTime = 7;
+  bool showCover = 8;
+  bool showVerified = 9;
 }
