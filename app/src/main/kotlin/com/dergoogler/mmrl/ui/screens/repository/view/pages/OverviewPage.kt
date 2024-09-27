@@ -21,6 +21,7 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,6 +38,7 @@ import com.dergoogler.mmrl.model.local.versionDisplay
 import com.dergoogler.mmrl.model.online.OnlineModule
 import com.dergoogler.mmrl.model.online.VersionItem
 import com.dergoogler.mmrl.ui.component.Alert
+import com.dergoogler.mmrl.ui.component.LabelItem
 import com.dergoogler.mmrl.utils.extensions.toDateTime
 import java.util.Locale
 
@@ -84,6 +86,24 @@ fun OverviewPage(
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            online.categories?.let {
+                if (it.isNotEmpty()) {
+                    it.forEach { category ->
+                        LabelItem(text = category)
+                    }
+                }
+            }
+
+        }
     }
 
     HorizontalDivider(thickness = 0.9.dp)
