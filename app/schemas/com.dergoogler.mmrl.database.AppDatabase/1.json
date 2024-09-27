@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fe62ef02e4d9d33205893e3df85730bf",
+    "identityHash": "a558c8b042e64f7b0d98dd1ab67515df",
     "entities": [
       {
         "tableName": "repos",
@@ -82,7 +82,7 @@
       },
       {
         "tableName": "onlineModules",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `repoUrl` TEXT NOT NULL, `name` TEXT NOT NULL, `version` TEXT NOT NULL, `versionCode` INTEGER NOT NULL, `author` TEXT NOT NULL, `description` TEXT NOT NULL, `maxApi` INTEGER, `minApi` INTEGER, `size` INTEGER, `categories` TEXT, `icon` TEXT, `homepage` TEXT, `donate` TEXT, `support` TEXT, `cover` TEXT, `screenshots` TEXT, `license` TEXT, `readme` TEXT, `require` TEXT, `verified` INTEGER, `magisk` TEXT, `kernelsu` TEXT, `apatch` TEXT, `color` TEXT, `title` TEXT, `message` TEXT, `service` INTEGER, `postFsData` INTEGER, `resetprop` INTEGER, `sepolicy` INTEGER, `zygisk` INTEGER, `apks` INTEGER, `webroot` INTEGER, `postMount` INTEGER, `bootCompleted` INTEGER, `type` TEXT NOT NULL, `added` REAL, `source` TEXT NOT NULL, `antifeatures` TEXT, PRIMARY KEY(`id`, `repoUrl`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `repoUrl` TEXT NOT NULL, `name` TEXT NOT NULL, `version` TEXT NOT NULL, `versionCode` INTEGER NOT NULL, `author` TEXT NOT NULL, `description` TEXT NOT NULL, `maxApi` INTEGER, `minApi` INTEGER, `size` INTEGER, `categories` TEXT, `icon` TEXT, `homepage` TEXT, `donate` TEXT, `support` TEXT, `cover` TEXT, `screenshots` TEXT, `license` TEXT, `readme` TEXT, `require` TEXT, `verified` INTEGER, `magisk` TEXT, `kernelsu` TEXT, `apatch` TEXT, `title` TEXT, `message` TEXT, `service` INTEGER, `postFsData` INTEGER, `resetprop` INTEGER, `sepolicy` INTEGER, `zygisk` INTEGER, `apks` INTEGER, `webroot` INTEGER, `postMount` INTEGER, `bootCompleted` INTEGER, `type` TEXT NOT NULL, `added` REAL, `source` TEXT NOT NULL, `antifeatures` TEXT, PRIMARY KEY(`id`, `repoUrl`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -225,12 +225,6 @@
           {
             "fieldPath": "root.apatch",
             "columnName": "apatch",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "note.color",
-            "columnName": "color",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -465,7 +459,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fe62ef02e4d9d33205893e3df85730bf')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a558c8b042e64f7b0d98dd1ab67515df')"
     ]
   }
 }

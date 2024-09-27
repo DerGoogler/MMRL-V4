@@ -127,18 +127,15 @@ data class TrackJsonEntity(
 @Entity(tableName = "note")
 @TypeConverters
 data class ModuleNoteEntity(
-    val color: String? = null,
     val title: String? = null,
     val message: String? = null,
 ) {
     constructor(original: ModuleNote?) : this(
-        color = original?.color,
         title = original?.title,
         message = original?.message,
     )
 
     fun toNote() = ModuleNote(
-        color = color,
         title = title,
         message = message,
     )

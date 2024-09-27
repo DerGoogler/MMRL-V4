@@ -21,7 +21,6 @@ import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.SuggestionChip
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -60,8 +59,6 @@ fun OverviewPage(
     online.note?.let {
         it.message?.let { it1 ->
             Alert(
-                backgroundColor = it.backgroundColor(),
-                textColor = it.textColor(),
                 title = it.title,
                 message = it1,
                 modifier = Modifier.padding(top = 8.dp, end = 8.dp, start = 8.dp, bottom = 4.dp)
@@ -87,22 +84,23 @@ fun OverviewPage(
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
+        online.categories?.let {
+            if (it.isNotEmpty()) {
+                Spacer(modifier = Modifier.height(8.dp))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            online.categories?.let {
-                if (it.isNotEmpty()) {
-                    it.forEach { category ->
-                        LabelItem(text = category)
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                ) {
+                    if (it.isNotEmpty()) {
+                        it.forEach { category ->
+                            LabelItem(text = category)
+                        }
                     }
                 }
             }
-
         }
     }
 

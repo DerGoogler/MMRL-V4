@@ -11,22 +11,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
-fun getTextColor(backgroundColor: Color): Color {
-    val luminance =
-        0.299 * backgroundColor.red + 0.587 * backgroundColor.green + 0.114 * backgroundColor.blue
-    return if (luminance > 0.5) Color.Black else Color.White
-}
-
 @Composable
 fun Alert(
-    backgroundColor: Color,
-    textColor: Color,
+    modifier: Modifier = Modifier,
+    backgroundColor: Color = MaterialTheme.colorScheme.secondaryContainer,
+    textColor: Color = MaterialTheme.colorScheme.onSecondaryContainer,
     title: String?,
     message: String,
-    modifier: Modifier = Modifier
 ) {
-//    val transparentBackgroundColor = backgroundColor.copy(alpha = 0.45f)
-
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -39,14 +31,14 @@ fun Alert(
                     color = backgroundColor,
                     shape = RoundedCornerShape(8.dp)
                 )
-                .padding(8.dp),
-            verticalArrangement = Arrangement.Center
+                .padding(12.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             if (title != null) {
                 Text(
                     text = title,
                     color = textColor,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
             }
