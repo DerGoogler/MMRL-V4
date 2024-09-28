@@ -13,7 +13,7 @@ import java.util.Locale
 data class ModuleRoot(
     val magisk: String? = null,
     val kernelsu: String? = null,
-    val apatch: String? = ">= 10764",
+    val apatch: String? = null,
 ) {
     private fun isNotEmpty() =
         magisk.orEmpty().isNotEmpty() || kernelsu.orEmpty().isNotEmpty() || apatch.orEmpty()
