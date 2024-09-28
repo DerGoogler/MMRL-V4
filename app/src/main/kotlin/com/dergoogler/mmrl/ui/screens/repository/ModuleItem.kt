@@ -23,6 +23,7 @@ import androidx.compose.ui.draw.BlurredEdgeTreatment.Companion.Rectangle
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -33,6 +34,8 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
+import coil.request.CachePolicy
+import coil.request.ImageRequest
 import com.dergoogler.mmrl.R
 import com.dergoogler.mmrl.model.online.OnlineModule
 import com.dergoogler.mmrl.model.state.OnlineState
@@ -54,7 +57,7 @@ fun ModuleItem(
     tonalElevation = 1.dp,
     shape = RoundedCornerShape(20.dp)
 ) {
-
+    val context = LocalContext.current
     val userPreferences = LocalUserPreferences.current
     val menu = userPreferences.repositoryMenu
     val hasLabel =
@@ -70,9 +73,10 @@ fun ModuleItem(
             if (menu.showCover) {
                 module.cover?.let {
                     if (it.isNotEmpty()) {
-
                         val painter = rememberAsyncImagePainter(
-                            model = it,
+                            model = ImageRequest.Builder(context).data(it).memoryCacheKey(it)
+                                .diskCacheKey(it).diskCachePolicy(CachePolicy.ENABLED)
+                                .memoryCachePolicy(CachePolicy.ENABLED).build(),
                         )
 
                         if (painter.state !is AsyncImagePainter.State.Error) {
