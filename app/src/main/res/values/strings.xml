@@ -102,8 +102,8 @@
     <string name="settings_repo">Repositories</string>
     <string name="settings_repo_desc">Manage Magisk modules repositories</string>
     <string name="settings_about">About</string>
-    <string name="settings_supported_repo">Supported Repositories</string>
-    <string name="settings_supported_repo_desc">A list of repos supported repositories in MMRL</string>
+    <string name="settings_resources">Resources</string>
+    <string name="settings_resources_desc">Documentations, Supported Repos and anything else</string>
     <!-- Root Item -->
     <string name="settings_root_access">Root Access: %s</string>
     <string name="settings_root_provider">Provider: %s</string>
@@ -132,6 +132,10 @@
     <string name="repo_incompatible">Incompatible</string>
     <string name="repo_options_update">Update</string>
     <string name="repo_options_delete">Delete</string>
+    <string name="repo_options_support">Support</string>
+    <string name="repo_options_submission">Submission</string>
+    <string name="repo_options_website">Website</string>
+    <string name="repo_options_donate">Donate</string>
     <string name="repo_delete_dialog_desc">Are you sure to delete %s?</string>
     <string name="repo_add_dialog_title">Add repository</string>
     <string name="repo_add_dialog_add">Add</string>
@@ -173,9 +177,5 @@
     <string name="open">Open</string>
     <string name="help">Help</string>
     <string name="module_config">Config</string>
-    <string name="repo_options_support">Support</string>
-    <string name="repo_options_submission">Submission</string>
-    <string name="repo_options_website">Website</string>
-    <string name="repo_options_donate">Donate</string>
 
 </resources>

@@ -87,11 +87,11 @@ fun SettingsScreen(
             )
 
             SettingNormalItem(
-                icon = R.drawable.brand_cloudflare,
-                title = stringResource(id = R.string.settings_supported_repo),
-                desc = stringResource(id = R.string.settings_supported_repo_desc),
+                icon = R.drawable.file_3d,
+                title = stringResource(id = R.string.settings_resources),
+                desc = stringResource(id = R.string.settings_resources_desc),
                 onClick = {
-                    context.openUrl(Const.SUPPORTED_REPOS_URL)
+                    context.openUrl(Const.RESOURCES_URL)
                 }
             )
 
