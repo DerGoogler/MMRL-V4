@@ -10,6 +10,10 @@ data class Repo(
     @PrimaryKey val url: String,
     val name: String = url,
     val enable: Boolean = true,
+    val submission: String? = null,
+    val website: String? = null,
+    val donate: String? = null,
+    val support: String? = null,
     @Embedded val metadata: RepoMetadata = RepoMetadata.default()
 ) {
     val isCompatible get() = metadata.version == ModulesJson.CURRENT_VERSION
@@ -27,6 +31,10 @@ data class Repo(
 
     fun copy(modulesJson: ModulesJson) = copy(
         name = modulesJson.name,
+        website = modulesJson.website,
+        support = modulesJson.support,
+        donate = modulesJson.donate,
+        submission = modulesJson.submission,
         metadata = RepoMetadata(
             version = modulesJson.metadata.version,
             timestamp = modulesJson.metadata.timestamp,

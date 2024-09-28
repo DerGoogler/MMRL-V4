@@ -3,6 +3,8 @@ package com.dergoogler.mmrl.ui.screens.settings.repositories
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.Crossfade
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,10 +12,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.FilledTonalIconButton
@@ -33,6 +37,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -44,6 +49,7 @@ import com.dergoogler.mmrl.model.state.RepoState
 import com.dergoogler.mmrl.ui.component.LabelItem
 import com.dergoogler.mmrl.ui.component.NavigationBarsSpacer
 import com.dergoogler.mmrl.ui.utils.expandedShape
+import com.dergoogler.mmrl.utils.extensions.openUrl
 import com.dergoogler.mmrl.utils.extensions.shareText
 import com.dergoogler.mmrl.utils.extensions.toDateTime
 
@@ -59,6 +65,7 @@ fun RepositoryItem(
     tonalElevation = 1.dp,
     onClick = { toggle(!repo.enable) },
 ) {
+    val context = LocalContext.current
     val (alpha, textDecoration) = when {
         !repo.compatible -> 0.5f to TextDecoration.LineThrough
         !repo.enable -> 0.5f to TextDecoration.None
@@ -111,8 +118,9 @@ fun RepositoryItem(
                 )
 
                 Text(
-                    text = stringResource(id = R.string.module_update_at,
-                        repo.timestamp.toDateTime()),
+                    text = stringResource(
+                        id = R.string.module_update_at, repo.timestamp.toDateTime()
+                    ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.outline,
                     textDecoration = textDecoration
@@ -138,8 +146,6 @@ fun RepositoryItem(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Spacer(modifier = Modifier.weight(1f))
-
             var open by remember { mutableStateOf(false) }
             if (open) {
                 BottomSheet(
@@ -148,6 +154,13 @@ fun RepositoryItem(
                     onClose = { open = false }
                 )
             }
+
+            ButtonItem(
+                icon = R.drawable.share,
+                onClick = { context.shareText(repo.url) }
+            )
+
+            Spacer(Modifier.weight(1f))
 
             ButtonItem(
                 icon = R.drawable.at,
@@ -165,9 +178,7 @@ fun RepositoryItem(
 
 @Composable
 private fun BottomSheet(
-    repo: RepoState,
-    onDelete: () -> Unit,
-    onClose: () ->  Unit
+    repo: RepoState, onDelete: () -> Unit, onClose: () -> Unit
 ) = ModalBottomSheet(
     onDismissRequest = onClose,
     sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true),
@@ -198,8 +209,9 @@ private fun BottomSheet(
                 )
 
                 Text(
-                    text = stringResource(id = R.string.module_update_at,
-                        repo.timestamp.toDateTime()),
+                    text = stringResource(
+                        id = R.string.module_update_at, repo.timestamp.toDateTime()
+                    ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.outline
                 )
@@ -220,58 +232,112 @@ private fun BottomSheet(
             readOnly = true,
             singleLine = true
         )
+    }
 
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(8.dp)
-        ) {
-            Spacer(modifier = Modifier.weight(1f))
+    Column(
+        modifier = Modifier
+            .padding(bottom = 18.dp),
+    ) {
+        repo.support?.let {
+            ValueItem(
+                icon = R.drawable.brand_git,
+                label = R.string.repo_options_support,
+                onClick = { context.openUrl(it) })
+        }
 
-            ButtonItem(
-                icon = R.drawable.share,
-                onClick = { context.shareText(repo.url) }
-            )
-
-            ButtonItem(
-                icon = R.drawable.trash,
-                label = R.string.repo_options_delete,
-                onClick = onDelete
+        repo.donate?.let {
+            ValueItem(
+                icon = R.drawable.heart_handshake,
+                label = R.string.repo_options_donate,
+                onClick = { context.openUrl(it) }
             )
         }
+
+        repo.website?.let {
+            ValueItem(
+                icon = R.drawable.world_www,
+                label = R.string.repo_options_website,
+                onClick = { context.openUrl(it) }
+            )
+        }
+
+        repo.submission?.let {
+            ValueItem(
+                icon = R.drawable.cloud_upload,
+                label = R.string.repo_options_submission,
+                onClick = { context.openUrl(it) }
+            )
+        }
+
+        ValueItem(
+            icon = R.drawable.trash,
+            label = R.string.repo_options_delete,
+            onClick = onDelete
+        )
     }
 
     NavigationBarsSpacer()
 }
 
 @Composable
-private fun ButtonItem(
-    @DrawableRes icon: Int,
-    @StringRes label: Int? = null,
+private fun ValueItem(
+    modifier: Modifier = Modifier,
+    @DrawableRes icon: Int? = null,
+    @StringRes label: Int,
     onClick: () -> Unit
-) = if (label != null) {
-    FilledTonalButton(
-        onClick = onClick,
-        contentPadding = PaddingValues(horizontal = 12.dp)
-    ) {
+) = Row(
+    modifier = modifier
+        .clickable(
+            interactionSource = remember { MutableInteractionSource() },
+            indication = rememberRipple(bounded = true),
+            onClick = onClick
+        )
+        .height(56.dp)
+        .fillMaxWidth()
+        .padding(horizontal = 16.dp),
+    verticalAlignment = Alignment.CenterVertically,
+    horizontalArrangement = Arrangement.spacedBy(4.dp)
+) {
+    val titleStyle = MaterialTheme.typography.titleMedium
+    val iconSize =
+        with(LocalDensity.current) { titleStyle.fontSize.toDp() * 1.0f }
+
+    icon?.let {
         Icon(
-            modifier = Modifier.size(20.dp),
+            modifier = Modifier.size(iconSize * 1.5f),
             painter = painterResource(id = icon),
             contentDescription = null
         )
 
         Spacer(modifier = Modifier.width(6.dp))
+    }
+    Text(
+        text = stringResource(id = label),
+        style = titleStyle,
+        color = MaterialTheme.colorScheme.onSurfaceVariant
+    )
+}
+
+
+@Composable
+private fun ButtonItem(
+    @DrawableRes icon: Int,
+    @StringRes label: Int? = null,
+    onClick: () -> Unit
+) = FilledTonalButton(
+    onClick = onClick,
+    contentPadding = PaddingValues(horizontal = 12.dp)
+) {
+    Icon(
+        modifier = Modifier.size(20.dp),
+        painter = painterResource(id = icon),
+        contentDescription = null
+    )
+
+    label?.let {
+        Spacer(modifier = Modifier.width(6.dp))
         Text(
             text = stringResource(id = label)
-        )
-    }
-} else {
-    FilledTonalIconButton(
-        onClick = onClick,
-    ) {
-        Icon(
-            modifier = Modifier.size(22.dp),
-            painter = painterResource(id = icon),
-            contentDescription = null
         )
     }
 }

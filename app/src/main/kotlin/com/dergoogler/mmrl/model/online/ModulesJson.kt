@@ -5,6 +5,10 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class ModulesJson(
     val name: String,
+    val submission: String? = null,
+    val website: String? = null,
+    val donate: String? = null,
+    val support: String? = null,
     val metadata: ModulesJsonMetadata = ModulesJsonMetadata.default(),
     val modules: List<OnlineModule>
 ) {

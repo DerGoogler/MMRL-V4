@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a558c8b042e64f7b0d98dd1ab67515df",
+    "identityHash": "48e744a8188bf09dc610ffe40bb08b4a",
     "entities": [
       {
         "tableName": "repos",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`url` TEXT NOT NULL, `name` TEXT NOT NULL, `enable` INTEGER NOT NULL, `version` INTEGER NOT NULL, `timestamp` REAL NOT NULL, `size` INTEGER NOT NULL, PRIMARY KEY(`url`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`url` TEXT NOT NULL, `name` TEXT NOT NULL, `enable` INTEGER NOT NULL, `submission` TEXT, `website` TEXT, `donate` TEXT, `support` TEXT, `version` INTEGER NOT NULL, `timestamp` REAL NOT NULL, `size` INTEGER NOT NULL, PRIMARY KEY(`url`))",
         "fields": [
           {
             "fieldPath": "url",
@@ -25,6 +25,30 @@
             "columnName": "enable",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "submission",
+            "columnName": "submission",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "website",
+            "columnName": "website",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "donate",
+            "columnName": "donate",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "support",
+            "columnName": "support",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "metadata.version",
@@ -459,7 +483,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a558c8b042e64f7b0d98dd1ab67515df')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '48e744a8188bf09dc610ffe40bb08b4a')"
     ]
   }
 }

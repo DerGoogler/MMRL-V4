@@ -173,5 +173,9 @@
     <string name="open">Open</string>
     <string name="help">Help</string>
     <string name="module_config">Config</string>
+    <string name="repo_options_support">Support</string>
+    <string name="repo_options_submission">Submission</string>
+    <string name="repo_options_website">Website</string>
+    <string name="repo_options_donate">Donate</string>
 
 </resources>
