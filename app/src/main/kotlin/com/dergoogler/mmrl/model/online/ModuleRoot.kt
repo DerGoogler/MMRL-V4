@@ -1,8 +1,5 @@
 package com.dergoogler.mmrl.model.online
 
-
-import android.util.Log
-import androidx.compose.ui.text.toLowerCase
 import com.squareup.moshi.JsonClass
 import io.github.z4kn4fein.semver.constraints.toConstraint
 import io.github.z4kn4fein.semver.satisfies
