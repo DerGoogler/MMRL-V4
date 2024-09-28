@@ -45,7 +45,6 @@ import com.dergoogler.mmrl.utils.extensions.openUrl
 fun ViewTopBar(
     online: OnlineModule,
     tracks: List<Pair<Repo, TrackJson>>,
-    rootVersionName: String,
     scrollBehavior: TopAppBarScrollBehavior,
     navController: NavController
 ) = CollapsingTopAppBar(
@@ -59,7 +58,6 @@ fun ViewTopBar(
     },
     content = topBarContent(
         module = online,
-        rootVersionName = rootVersionName,
         tracks = tracks
     ),
     navigationIcon = {
@@ -82,7 +80,6 @@ fun ViewTopBar(
 private fun topBarContent(
     module: OnlineModule,
     tracks: List<Pair<Repo, TrackJson>>,
-    rootVersionName: String,
 ): @Composable ColumnScope.() -> Unit = {
     val userPreferences = LocalUserPreferences.current
     val repositoryMenu = userPreferences.repositoryMenu
@@ -165,16 +162,6 @@ private fun topBarContent(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.outline
             )
-
-            module.root?.let {
-                if (!it.isSupported(rootVersionName)) {
-                    Text(
-                        text = stringResource(R.string.unsupported),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onError
-                    )
-                }
-            }
         }
     }
 

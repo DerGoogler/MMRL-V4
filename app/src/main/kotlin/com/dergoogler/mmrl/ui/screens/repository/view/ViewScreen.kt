@@ -71,7 +71,6 @@ fun ViewScreen(
             ViewTopBar(
                 online = viewModel.online,
                 tracks = viewModel.tracks,
-                rootVersionName = viewModel.version,
                 scrollBehavior = scrollBehavior,
                 navController = navController
             )
@@ -101,6 +100,7 @@ fun ViewScreen(
                             local = viewModel.local,
                             notifyUpdates = viewModel.notifyUpdates,
                             isProviderAlive = viewModel.isProviderAlive,
+                            rootVersionName = viewModel.version,
                             setUpdatesTag = viewModel::setUpdatesTag,
                             onInstall = { download(it, true) },
                         )

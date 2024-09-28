@@ -63,6 +63,8 @@
     <string name="view_module_screenshots">Screenshots</string>
     <string name="view_module_help">Help</string>
     <string name="view_module_antifeatures">Anti-Features</string>
+    <string name="view_module_unsupported">Unsupported</string>
+    <string name="view_module_unsupported_desc">Seems like that you device doesn\'t support this module version. Install at your own risk!</string>
 
     <!-- View Module / Features -->
     <string name="view_module_features">Features</string>
@@ -173,7 +175,6 @@
     <!-- Other -->
     <string name="unknown_error">Unknown error</string>
     <string name="verified">Verified</string>
-    <string name="unsupported">Unsupported</string>
     <string name="open">Open</string>
     <string name="help">Help</string>
     <string name="module_config">Config</string>

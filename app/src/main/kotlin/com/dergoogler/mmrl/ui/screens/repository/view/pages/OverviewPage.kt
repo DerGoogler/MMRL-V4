@@ -47,6 +47,7 @@ fun OverviewPage(
     item: VersionItem?,
     local: LocalModule?,
     isProviderAlive: Boolean,
+    rootVersionName: String,
     notifyUpdates: Boolean,
     setUpdatesTag: (Boolean) -> Unit,
     onInstall: (VersionItem) -> Unit
@@ -55,6 +56,18 @@ fun OverviewPage(
         .fillMaxSize()
         .verticalScroll(rememberScrollState())
 ) {
+
+    online.root?.let {
+        if (it.isNotSupported(rootVersionName)) {
+            Alert(
+                title = stringResource(id = R.string.view_module_unsupported),
+                backgroundColor = MaterialTheme.colorScheme.errorContainer,
+                textColor = MaterialTheme.colorScheme.onErrorContainer,
+                message = stringResource(id = R.string.view_module_unsupported_desc),
+                modifier = Modifier.padding(top = 8.dp, end = 8.dp, start = 8.dp, bottom = 4.dp)
+            )
+        }
+    }
 
     online.note?.let {
         it.message?.let { it1 ->
