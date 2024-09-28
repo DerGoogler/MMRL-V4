@@ -52,6 +52,7 @@ import com.dergoogler.mmrl.ui.utils.expandedShape
 import com.dergoogler.mmrl.utils.extensions.openUrl
 import com.dergoogler.mmrl.utils.extensions.shareText
 import com.dergoogler.mmrl.utils.extensions.toDateTime
+import com.dergoogler.mmrl.utils.extensions.toFormattedDate
 
 @Composable
 fun RepositoryItem(
@@ -119,7 +120,7 @@ fun RepositoryItem(
 
                 Text(
                     text = stringResource(
-                        id = R.string.module_update_at, repo.timestamp.toDateTime()
+                        id = R.string.module_update_at, repo.timestamp.toFormattedDate()
                     ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.outline,
@@ -210,7 +211,7 @@ private fun BottomSheet(
 
                 Text(
                     text = stringResource(
-                        id = R.string.module_update_at, repo.timestamp.toDateTime()
+                        id = R.string.module_update_at, repo.timestamp.toFormattedDate()
                     ),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.outline

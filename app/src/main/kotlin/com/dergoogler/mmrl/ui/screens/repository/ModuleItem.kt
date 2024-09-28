@@ -43,6 +43,7 @@ import com.dergoogler.mmrl.ui.component.LabelItem
 import com.dergoogler.mmrl.ui.component.Logo
 import com.dergoogler.mmrl.ui.providable.LocalUserPreferences
 import com.dergoogler.mmrl.utils.extensions.toDate
+import com.dergoogler.mmrl.utils.extensions.toFormattedDate
 
 @Composable
 fun ModuleItem(
@@ -151,7 +152,7 @@ fun ModuleItem(
                     if (menu.showUpdatedTime) {
                         Text(
                             text = stringResource(
-                                id = R.string.module_update_at, state.lastUpdated.toDate()
+                                id = R.string.module_update_at, state.lastUpdated.toFormattedDate()
                             ),
                             style = MaterialTheme.typography.bodySmall,
                             textDecoration = decoration,

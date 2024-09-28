@@ -30,6 +30,7 @@ import com.dergoogler.mmrl.model.online.VersionItem
 import com.dergoogler.mmrl.ui.component.LabelItem
 import com.dergoogler.mmrl.ui.component.VersionItemBottomSheet
 import com.dergoogler.mmrl.utils.extensions.toDate
+import com.dergoogler.mmrl.utils.extensions.toFormattedDate
 
 @Composable
 fun VersionsPage(
@@ -122,7 +123,7 @@ private fun VersionItem(
         }
 
         Text(
-            text = item.timestamp.toDate(),
+            text = item.timestamp.toFormattedDate(),
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.outline
         )

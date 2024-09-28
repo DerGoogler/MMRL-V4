@@ -39,6 +39,7 @@ import com.dergoogler.mmrl.model.online.VersionItem
 import com.dergoogler.mmrl.ui.component.Alert
 import com.dergoogler.mmrl.ui.component.LabelItem
 import com.dergoogler.mmrl.utils.extensions.toDateTime
+import com.dergoogler.mmrl.utils.extensions.toFormattedDate
 import java.util.Locale
 
 @Composable
@@ -202,7 +203,7 @@ private fun CloudItem(
 
     ValueItem(
         key = stringResource(id = R.string.view_module_last_updated),
-        value = item.timestamp.toDateTime()
+        value = item.timestamp.toFormattedDate()
     )
 
     size?.let {
