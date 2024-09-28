@@ -18,4 +18,5 @@ message RepositoryMenu {
   bool showUpdatedTime = 7;
   bool showCover = 8;
   bool showVerified = 9;
+  bool showAntiFeatures = 10;
 }

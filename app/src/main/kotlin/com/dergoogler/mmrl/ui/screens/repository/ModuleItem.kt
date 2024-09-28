@@ -57,8 +57,8 @@ fun ModuleItem(
 
     val userPreferences = LocalUserPreferences.current
     val menu = userPreferences.repositoryMenu
-    val hasLabel = (state.hasLicense && menu.showLicense)
-            || state.installed
+    val hasLabel =
+        (state.hasLicense && menu.showLicense) || state.installed || (module.track.hasAntifeatures && menu.showAntiFeatures)
     val isVerified = module.isVerified && menu.showVerified
 
     Box(
@@ -179,6 +179,18 @@ fun ModuleItem(
                 ) {
                     if (menu.showLicense && module.hasLicense) {
                         module.license?.let { LabelItem(text = it) }
+                    }
+
+                    if (menu.showAntiFeatures) {
+                        module.track.antifeatures?.let {
+                            if (it.isNotEmpty()) {
+                                LabelItem(
+                                    containerColor = MaterialTheme.colorScheme.onTertiary,
+                                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                                    text = stringResource(id = R.string.view_module_antifeatures)
+                                )
+                            }
+                        }
                     }
 
                     when {

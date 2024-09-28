@@ -177,6 +177,12 @@ private fun BottomSheet(
             )
 
             MenuChip(
+                selected = menu.showAntiFeatures,
+                onClick = { setMenu(menu.copy(showAntiFeatures = !menu.showAntiFeatures)) },
+                label = { Text(text = stringResource(id = R.string.menu_show_antifeatures)) }
+            )
+
+            MenuChip(
                 selected = menu.showUpdatedTime,
                 onClick = { setMenu(menu.copy(showUpdatedTime = !menu.showUpdatedTime)) },
                 label = { Text(text = stringResource(id = R.string.menu_show_updated)) }
